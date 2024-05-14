@@ -64,7 +64,9 @@ Be sure to reference 'Additional Info' and 'Troubleshooting' for any issues, or 
   
 <summary>Additional Info</summary>
 
-<h4>CJ will help me see what else to add to the [requirements.txt](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) file because I don't really know.</h4>
+<h4>please help me out here CJ</h4>
+
+CJ will help me see what else to add to the [`requirements.txt`](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) file because I don't really know yet, note add pyautogui
 
 After installing requirements, if command prompt is reopened, the folder has to be directed into to find the python code.
 
@@ -80,7 +82,7 @@ After installing requirements, if command prompt is reopened, the folder has to 
 
 <h4>1.</h4>
 
-If you receive error `ModuleNotFoundError`, make sure that file [**requirements.txt**](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) is uploaded to the directory,
+If you receive error `ModuleNotFoundError`, make sure that file [`requirements.txt`](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) is uploaded to the directory,
 
 ```bash
 cd chess-bot-v3-master
