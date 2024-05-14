@@ -1,20 +1,25 @@
-<h1> chess-bot </h1> 
-<h2> OVERVIEW: </h2>
-A python chess bot that takes a screenshot of a chess.com window and plays the best move.
+<div align="center">
+  <h1> Chess Bot v3 </h1>
+  <p> <b>Note:</b> This project was designed for Windows OS users.</p>
+<div align="left"> 
+  <ul>
+  <b><li>Get Started</li></b>
 
-<h2> HOW TO INSTALL: </h2>
-Dependencies can be installed via requirements.txt.
-<b><br>NOTE: THIS PROJECT WAS DESIGNED TO RUN ON WINDOWS OS.
-<br></b>(It may also be compatible with MacOS, but installation steps will vary.)
+  Clone repo and install [requirements.txt](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) in a [**Python>=3.8.0**](https://www.python.org/) environment.
+  
+  ```bash
+  git clone https://github.com/Thegladster/chess-bot-v3
+  cd chess-bot-v3
+  pip install -r requirements.txt
+  ```
 
-<b> <br> 1. </b> Open command prompt. (Windows + type cmd).
-<b> <br> 2. </b> Download requirements.txt from this repository.
-<b> <br> 3. </b> Run command <i> pip install -r requirements.txt </i>
-<br> <b> Then, enter this code into command prompt. </b>
+  After that, run the project whenever after inputting command,
 
-<i>
-  git clone https://github.com/Thegladster/chess-bot <br>
-  python main.py
-<br> </i>
+  ```bash
+  python run main.py
+  ```
 
-<br> Answer all the questions that is asked by command prompt and follow the instructions there.
+<b><li>Additional Info</li></b>
+
+CJ will help me see what else to add to the [requirements.txt](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) file because I don't really know.
+  </details>
