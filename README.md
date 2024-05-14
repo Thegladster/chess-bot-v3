@@ -6,10 +6,19 @@
 <details open>
 <summary>Get Started</summary>
 
-<h4>1. Quickstart</h4>
+<h4>1. Check python version and install dependencies</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Download ZIP file of the repository. _Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment._
-  
+Download ZIP folder of the repository and extract the files once downloaded. Then open command prompt (Windows + R and type cmd). Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
+
+To find python version, run this line in command prompt:
+
+```bash
+python --version
+```
+If python version is less than 3.8.0 or not installed, download [**Python**](https://www.python.org/).
+
+Then, run command
+
   ```bash
   cd chess-bot-v3-master
   pip install -r requirements.txt
