@@ -4,6 +4,9 @@
 <div align="left"> 
   <ul>
   <b><li>Get Started</li></b>
+  Download the ZIP file in order to get the python script. (Code --> Download ZIP)
+
+ <img width="1000" alt="image" src="https://github.com/Thegladster/chess-bot-v3/assets/64565266/3566e481-d9d0-45fd-945a-2ae5364c3766">
 
   Clone repo and install [requirements.txt](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) in a [**Python>=3.8.0**](https://www.python.org/) environment.
   
