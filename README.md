@@ -51,7 +51,11 @@ Pull the repository instead of cloning it. The resulting code will look like
 
 ```bash
 git init
+git add *
+git stash
 git pull https://github.com/Thegladster/chess-bot-v3
+cd chess-bot-v3
+pip install -r requirements.txt
 ```
 
 </details>
