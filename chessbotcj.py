@@ -13,14 +13,14 @@ monwidth = pyautogui.size()[0]
 monheight = pyautogui.size()[1]
 
 # CHANGE LEFT_OFFSET, TOP_OFFSET, AND SQUARE_SIDE (measure them)
-square_side = 215
-left_offset = 564
-top_offset = 255
+square_side = 100
+left_offset = 200
+top_offset = 135
 right_offset = monwidth - (left_offset + square_side * 8)
 bottom_offset = (monheight - top_offset - square_side * 8)
 
 # Initialization
-stockfish = Stockfish("C:/Users/LY GAMING PC/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
+stockfish = Stockfish(""C:/Users/colin/Documents/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 print("Loading model...")
