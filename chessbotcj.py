@@ -35,7 +35,7 @@ stockfish.set_skill_level(b)
 
 print("Loading model...")
 # Model
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/LY GAMING PC/yolov5/best.pt')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/colin/Downloads/best.pt')
 model.conf = 0.8
 
 def screenshot():
