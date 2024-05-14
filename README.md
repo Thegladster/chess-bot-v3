@@ -22,4 +22,19 @@
 <b><li>Additional Info</li></b>
 
 CJ will help me see what else to add to the [requirements.txt](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) file because I don't really know.
-  </details>
+
+After installing requirements and cloning the repository, if command prompt is reopened
+
+<b><li>Troubleshooting</li></b>
+
+If after cloning repository, command prompt outputs this fatal error:
+
+```bash
+fatal: destination path 'chess-bot-v3' already exists and is not an empty directory.
+```
+
+Pull the repository instead of cloning it. The resulting code will look like
+
+```bash
+git pull https://github.com/Thegladster/chess-bot-v3
+```
