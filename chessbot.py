@@ -7,6 +7,7 @@ import math
 import keyboard
 import sys
 import random
+import time
 
 # Finds monitor data
 monwidth = pyautogui.size()[0]
@@ -23,16 +24,16 @@ bottom_offset = (monheight - top_offset - square_side * 8)
 stockfish = Stockfish("C:/Users/LY GAMING PC/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
-print("Loading model...")
 player = "unknown"
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-time = float(input("Time control? (min.) "))
+timevar = float(input("Time control? (min.) "))
 
 # STOCKFISH SKILL (a = minimum skill, b = maximum, max possible is 20)
-a = 8
+a = 10
 b = 20
 stockfish.set_skill_level(b)
 
+print("Loading model...")
 # Model
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/LY GAMING PC/yolov5/best.pt')
 model.conf = 0.8
@@ -148,22 +149,26 @@ def FEN_addition():
 
     if written_real_fen == "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR":
         move = "w"
-        movenum = "1"
-        movenum = str(movenum)
+        movenum = str(1)
         castling = "KQkq"
         player = "w"
     else:
         if written_real_fen == "RNBKQBNR/PPPPPPPP/8/8/8/8/pppppppp/rnbkqbnr":
             move = "w"
-            movenum = "1"
-            movenum = str(movenum)
+            movenum = str(1)
             castling = "KQkq"
             player = "b"
         else:
-            move = input("Whose turn is it to move? [w/b]: ")
-            movenum = input("What is the current move number? ")
-            castling = input("Specify castling: [K/Q/k/q]: ")
-            player = input("What color player are you? [w/b]: ")
+            if 'pppppppp/rnbkqbnr' in written_real_fen:
+                move = "b"
+                movenum = str(1)
+                castling = "KQkq"
+                player = "b"
+            else:
+                move = input("Whose turn is it to move? [w/b]: ")
+                movenum = input("What is the current move number? ")
+                castling = input("Specify castling: [K/Q/k/q]: ")
+                player = input("What color player are you? [w/b]: ")
 
     if player == "b":
         written_real_fen = written_real_fen[::-1]
@@ -288,18 +293,91 @@ while not keyboard.is_pressed('p'):
     # Tries making move, if illegal, bot ends
     try:
         stockfish.make_moves_from_current_position([oppmove])
+        print(oppmove)
         time_constraint += 1
     except:
-        print('Your opponent seems to have made an illegal move,', oppmove + '. Make sure move speed is set to "fast" and restart the bot.')
+        # TRIES AGAIN (it may have been a mid-frame error.)
+        time.sleep(0.5)
+        screenshot()
+        write_FEN()
+
+        # Conversion from real FEN to digital
+
+    written_digital_fen = written_real_fen
+    stockfish_digital_fen = stockfish_real_fen
+
+    written_digital_fen = written_digital_fen.replace('/', '')
+    written_digital_fen = written_digital_fen.replace('8', 'XXXXXXXX')
+    written_digital_fen = written_digital_fen.replace('7', 'XXXXXXX')
+    written_digital_fen = written_digital_fen.replace('6', 'XXXXXX')
+    written_digital_fen = written_digital_fen.replace('5', 'XXXXX')
+    written_digital_fen = written_digital_fen.replace('4', 'XXXX')
+    written_digital_fen = written_digital_fen.replace('3', 'XXX')
+    written_digital_fen = written_digital_fen.replace('2', 'XX')
+    written_digital_fen = written_digital_fen.replace('1', 'X')
+
+    stockfish_digital_fen = stockfish_digital_fen.replace('/', '')
+    stockfish_digital_fen = stockfish_digital_fen.replace('8', 'XXXXXXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('7', 'XXXXXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('6', 'XXXXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('5', 'XXXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('4', 'XXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
+
+    print(stockfish_digital_fen)
+    print(written_digital_fen)
+
+    # Searches for differences in FEN string
+    n = 0
+    for i in range(len(written_digital_fen)):
+        if written_digital_fen[i] == stockfish_digital_fen[i]:
+            n = n
+        else:
+            if written_digital_fen[i] == 'X':
+                num1 = str(8 - math.floor(i / 8))
+                letter1 = str(letters[i % 8])
+                n += 1
+            else:
+                num2 = str(8 - math.floor(i / 8))
+                letter2 = str(letters[i % 8])
+                n += 1
+
+    oppmove = (letter1 + num1 + letter2 + num2)
+    print(n)
+
+    if n > 3:
+        if player == 'w':
+            if stockfish_digital_fen[5] == written_digital_fen[7]:
+                oppmove = 'e8g8'
+            else:
+                oppmove = 'e8c8'
+        else:
+            if stockfish_digital_fen[61] == written_digital_fen[63]:
+                oppmove = 'e1g1'
+            else:
+                oppmove = 'e1c1'
+
+    # Tries making move, if illegal, bot ends
+    try:
+        print(oppmove)
+        stockfish.make_moves_from_current_position([oppmove])
+    except:
+        print('Your opponent seems to have made an illegal move,',
+              oppmove + '. Make sure move speed is set to "fast" and restart the bot.')
         sys.exit()
 
     # PLAYER'S TURN
+    eval = str(stockfish.get_evaluation())
+    print(eval[0])
+
     stockfish.set_skill_level((random.randint(a, b)))
 
     if time_constraint < 8:
         bestmove = stockfish.get_best_move_time(100)
     else:
-        bestmove = stockfish.get_best_move_time((time * 60000)/(random.randint(50, 200)))
+        bestmove = stockfish.get_best_move_time((timevar * 60000) / (random.randint(60, 200)))
 
     # Sets x/y coordinates for mouse travel
     x1 = (conversion(bestmove, 0))
