@@ -30,7 +30,7 @@ stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/sto
 
 &nbsp;&nbsp;&nbsp;&nbsp;**2b.** Download file [**best.pt**](https://drive.google.com/file/d/1qWDevhJstvmbeFPu9nRYgxwbgm6eo1My/view?usp=sharing) from Google Drive (filesize is too large for GitHub.) Copy the path to the `best.pt` file.
 
-Replace line 38 of `chessbot.py` with `model = torch.hub.load('ultralytics/yolov5', 'custom', path='path/to/best.pt')`, but with the actual path to the `best.pt` file (Right click on the `.exe` file and select 'Copy as Path').
+Replace line 38 of `chessbot.py` with `model = torch.hub.load('ultralytics/yolov5', 'custom', path='path/to/best.pt')`, but with the actual path to the `best.pt` file (Right click on the `best.pt` file and select 'Copy as Path').
 
 Then, once again, replace all the back slashes with forward slashes.
 
