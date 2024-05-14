@@ -7,7 +7,9 @@
 <summary>Get Started</summary>
 <br>
   
-  Clone repo and install [requirements.txt](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) in a [**Python>=3.8.0**](https://www.python.org/) environment.
+<h4>1.</h4>
+
+Clone repo and install [`requirements.txt`](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt). Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
   
   ```bash
   git clone https://github.com/Thegladster/chess-bot-v3
@@ -15,7 +17,9 @@
   pip install -r requirements.txt
   ```
 
-  After that, run the project whenever after inputting command,
+<h4>2.</h4>Modify the `chessbot.py` file.
+
+After that, run the project whenever after inputting command,
 
   ```bash
   python chessbot.py
@@ -55,6 +59,11 @@ git add *
 git stash
 git pull https://github.com/Thegladster/chess-bot-v3
 cd chess-bot-v3
+```
+
+If you receive error `ModuleNotFoundError`, make sure that file [`requirements.txt`](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) is uploaded to the directory,
+
+```bash
 pip install -r requirements.txt
 ```
 
