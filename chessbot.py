@@ -29,8 +29,8 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 time = float(input("Time control? (min.) "))
 
 # STOCKFISH SKILL (a = minimum skill, b = maximum, max possible is 20)
-a = 5
-b = 15
+a = 8
+b = 20
 stockfish.set_skill_level(b)
 
 # Model
