@@ -40,9 +40,8 @@ After installing requirements and cloning the repository, if command prompt is r
 <details>
 
 <summary>Troubleshooting</summary>
-<br>
 
-If after cloning repository, command prompt outputs this fatal error:
+<h4>1.</h4> If after cloning repository, command prompt outputs this fatal error:
 
 ```bash
 fatal: destination path 'chess-bot-v3' already exists and is not an empty directory.
@@ -51,6 +50,7 @@ fatal: destination path 'chess-bot-v3' already exists and is not an empty direct
 Pull the repository instead of cloning it. The resulting code will look like
 
 ```bash
+git init
 git pull https://github.com/Thegladster/chess-bot-v3
 ```
 
