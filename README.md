@@ -8,7 +8,7 @@
 
 <h4>1. Quickstart</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Download ZIP file of the repository. Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
+&nbsp;&nbsp;&nbsp;&nbsp;Download ZIP file of the repository. _Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment._
   
   ```bash
   cd chess-bot-v3-master
