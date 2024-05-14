@@ -47,7 +47,7 @@ def screenshot():
 
     # Inference
     results = model(im)
-    # results.show()
+    results.show()
     df = (results.pandas().xyxy[0])
 
 def isolate(column, row):
