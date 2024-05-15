@@ -50,6 +50,7 @@ stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/sto
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;**d.** If the Stockfish folder is another directory, locate the `stockfish-windows-x86-64-avx2.exe` file within the folder (via search), copy the path, and replace the path in line 24.
+
 **IMPORTANT:** Make sure that you replace all the back slashes with _forward slashes._
 
 ```python
@@ -65,25 +66,72 @@ model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downl
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;**f.** If the `best.pt` file is another directory, locate the file (via search), copy the path, and replace the path in line 38.
+
 **IMPORTANT:** Make sure that you replace all the back slashes with _forward slashes._
 
 ```python
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='path/to/best.pt')
 ```
 
+Remember to save the file (Ctrl+S) once done.
+
 <hr>
 
 <h4>4. Find the dimensions of the chessboard.</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Change the variables `square_side`, `left_offset`, and `top_offset`. These will be used to accurately screenshot the board (Resulting screenshot should be just the board).
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Open chess.com, play a game, then abort it right away (to set the code up for accurate dimensions).
+
+**IMPORTANT:** MAKE SURE YOUR CHESS WINDOW IS IN WINDOWED FULLSCREEN. If your chess window is in split screen mode, then it will _not_ be consistent.
+
+Press the square on the top right of your window to enable Windowed Fullscreen. You can also press key `F11` to enable true Fullscreen, but keep in mind that when using the chess bot in the future, the window will always have to be true fullscreen or else the screenshot will not capture accurately.
+
+&nbsp;&nbsp;&nbsp;&nbsp;**b.** Take three screenshots of your chess window.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **1.** the distance from the _left_ side of the chessboard to the _left_ side of the monitor.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **2.** the distance from the _top_ side of the chessboard to the _top_ of the monitor.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **3.** the size of _one_ chessboard square.
+
+<img width="1500" alt="image" src="https://github.com/Thegladster/chess-bot-v3/assets/64565266/0c2abf3a-3392-4c94-938c-53679b9adc15">
+
+&nbsp;&nbsp;&nbsp;&nbsp;**c.** Upload the images to an image measuring software, such as [**this**](https://tools.knowledgewalls.com/image-size-finder), and write down the:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **1.** width of the first image
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **2.** height of the second image
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **3.** width OR height (it doesn't matter because it should be a square).
+
+&nbsp;&nbsp;&nbsp;&nbsp;**d.** Open `screenshot.py` from the extracted folder `chess-bot-v3-master`.
+
+**NOTE:** The file `screenshot.py` is simply for _testing_ if your dimensions of the chessboard are correct before running it on `chessbot.py`! It is _not_ the chessbot.
+
+Change the variables `square_side`, `left_offset`, and `top_offset`.
 
 ```python
-square_side = x
-left_offset = y
-top_offset = z
+# Example (use your own dimensions):
+left_offset = 564
+top_offset = 255
+square_side = 215
 ```
 
 Make sure to save changes before running.
+
+&nbsp;&nbsp;&nbsp;&nbsp;**e.** To run `screenshot.py`, edit the following command in your text editor:
+
+```bash
+cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
+python screenshot.py
+```
+
+As we did in step 1, change the `user` field of the first line to your username.
+
+If the right side of the chessboard is cropped, change the `square_side` variable in `screenshot.py` by 2 pixels. This will make the image slightly wider on the right and bottom side.
+
+&nbsp;&nbsp;&nbsp;&nbsp;**f.** Once the output screenshot looks like how you want it to (all chess pieces on the board have a label around them, and only the chessboard is in frame, nothing else), open `chessbot.py` on your text editor.
+
+Replace the variables on `left_offset`, `top_offset`, and `square_side` (lines 17, 18, 19) with the numbers you used for `screenshot.py`.
 
 <hr>
 
