@@ -180,6 +180,8 @@ After installing requirements, if Command Prompt is reopened, the folder has to 
   python chessbot.py
   ```
 
+<hr>
+
 <h4>2.</h4> 
 
 To raise or lower the engine's ELO (skill level), adjust variables `a` and `b` (lines 33 and 34).
@@ -213,6 +215,8 @@ pip install [title]
 
 with `title` being the name of the missing module.
 
+<hr>
+
 <h4>2.</h4> If, when inputting this command into Command Prompt,
 
  ```bash
@@ -236,17 +240,23 @@ Run this code in Command Prompt, but replace line `path/to/chess-bot-v3-master` 
   pip install -r requirements.txt
   ```
 
+<hr>
+
 <h4>3.</h4> If the `torch` module is having trouble installing, install the CPU version instead through `pip`,
 
 ```bash
 pip3 install torch torchvision torchaudio
 ```
 
+<hr>
+
 <h4>4.</h4> Don't know your computer username? Enter this line into your command prompt:
 
 ```bash
 whoami
 ```
+
+<hr>
 
 <h4>5.</h4> If you recieve an error that your command isn't found,
 
