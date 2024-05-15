@@ -4,9 +4,9 @@ from PIL import ImageGrab
 import pathlib
 
 # CHANGE LEFT_OFFSET, TOP_OFFSET, AND SQUARE_SIDE
-square_side = 215
 left_offset = 564
 top_offset = 255
+square_side = 215
 
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
