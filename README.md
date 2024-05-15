@@ -2,14 +2,16 @@
   <h1>♟️ Chess Bot v3 ♟️</h1>
   
   **Note:** This project was designed for Windows OS users.
-<div align="left"> 
-  
+
+<div align="left">
 <details open>
 <summary><b>Get Started</b></summary>
 
 <h4>1. Check Python version and install text editor</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**a.** Download ZIP folder of the repository and extract the files once downloaded. Then open Command Prompt (Windows + R and type cmd). 
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Download ZIP folder of the repository, and rename the ZIP folder to `chessbot`. 
+
+Extract the files once renamed. Then open Command Prompt (Windows + R and type cmd). 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**b.** Make sure Command Prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
 
@@ -24,16 +26,18 @@ If python version is less than 3.8.0 or not installed at all, download Python [*
 
 <hr>
 
-<h4>2. Install dependencies.</h4>
+<h4>2. Install dependencies</h4>
 
 By default, downloads are saved in the Downloads folder, so the following code would generally work for most computers. 
 
 Simply copy this text into the text editor you downloaded in the previous step, and replace `user` with the username of the computer.
 
   ```bash
-  cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
+  cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
   pip install -r requirements.txt
   ```
+
+If `chess-bot-v3-master` is _not_ in the downloads folder, refer to the 2nd issue in the Troubleshooting/FAQ section of this document.
 
 <hr>
 
@@ -123,7 +127,7 @@ Make sure to save changes before running.
 &nbsp;&nbsp;&nbsp;&nbsp;**e.** To run `screenshot.py`, edit the following command in your text editor:
 
 ```bash
-cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
+cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
 python screenshot.py
 ```
 
@@ -144,7 +148,7 @@ After all that, the project should not be ready to run.
 &nbsp;&nbsp;&nbsp;&nbsp;Run the project whenever after inputting command,
 
   ```bash
-  cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
+  cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
   python chessbot.py
   ```
 
@@ -170,7 +174,7 @@ and the output will be what directory (folder) Command Prompt is currently looki
 After installing requirements, if Command Prompt is reopened, the folder has to be directed into to find the python code.
 
   ```bash
-  cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
+  cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
   python chessbot.py
   ```
 
@@ -184,7 +188,7 @@ After installing requirements, if Command Prompt is reopened, the folder has to 
 If you receive error `ModuleNotFoundError`, make sure that file [`requirements.txt`](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) is uploaded to the directory,
 
 ```bash
-cd chess-bot-v3-master
+cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
 pip install -r requirements.txt
 ```
 
@@ -193,12 +197,13 @@ Or try uploading yourself through `pip`, simply through
 ```bash
 pip install [title]
 ```
+
 with `title` being the name of the missing module.
 
 <h4>2.</h4> If, when inputting this command into Command Prompt,
 
  ```bash
-  cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
+  cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
   pip install -r requirements.txt
   ```
 
@@ -208,7 +213,7 @@ the error arises,
 The system cannot find the path specified.
 ```
 
-find the `chess-bot-v3-master` folder, double click, find the secondary `chess-bot-v3-master` folder underneath, right-click the folder, and select 'Copy as Path'.
+find the `chessbot` folder, double click, find the `chess-bot-v3-master` folder underneath, right-click the folder, and select 'Copy as Path'.
 
 Run this code in Command Prompt, but replace line `path/to/chess-bot-v3-master` with the path you copied.
 
