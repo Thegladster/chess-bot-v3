@@ -14,9 +14,9 @@ monwidth = pyautogui.size()[0]
 monheight = pyautogui.size()[1]
 
 # CHANGE LEFT_OFFSET, TOP_OFFSET, AND SQUARE_SIDE (measure them)
-square_side = 215
 left_offset = 564
 top_offset = 255
+square_side = 215
 right_offset = monwidth - (left_offset + square_side * 8)
 bottom_offset = (monheight - top_offset - square_side * 8)
 
