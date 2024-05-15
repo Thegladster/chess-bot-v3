@@ -303,70 +303,70 @@ while not keyboard.is_pressed('p'):
 
         # Conversion from real FEN to digital
 
-    written_digital_fen = written_real_fen
-    stockfish_digital_fen = stockfish_real_fen
+        written_digital_fen = written_real_fen
+        stockfish_digital_fen = stockfish_real_fen
 
-    written_digital_fen = written_digital_fen.replace('/', '')
-    written_digital_fen = written_digital_fen.replace('8', 'XXXXXXXX')
-    written_digital_fen = written_digital_fen.replace('7', 'XXXXXXX')
-    written_digital_fen = written_digital_fen.replace('6', 'XXXXXX')
-    written_digital_fen = written_digital_fen.replace('5', 'XXXXX')
-    written_digital_fen = written_digital_fen.replace('4', 'XXXX')
-    written_digital_fen = written_digital_fen.replace('3', 'XXX')
-    written_digital_fen = written_digital_fen.replace('2', 'XX')
-    written_digital_fen = written_digital_fen.replace('1', 'X')
+        written_digital_fen = written_digital_fen.replace('/', '')
+        written_digital_fen = written_digital_fen.replace('8', 'XXXXXXXX')
+        written_digital_fen = written_digital_fen.replace('7', 'XXXXXXX')
+        written_digital_fen = written_digital_fen.replace('6', 'XXXXXX')
+        written_digital_fen = written_digital_fen.replace('5', 'XXXXX')
+        written_digital_fen = written_digital_fen.replace('4', 'XXXX')
+        written_digital_fen = written_digital_fen.replace('3', 'XXX')
+        written_digital_fen = written_digital_fen.replace('2', 'XX')
+        written_digital_fen = written_digital_fen.replace('1', 'X')
 
-    stockfish_digital_fen = stockfish_digital_fen.replace('/', '')
-    stockfish_digital_fen = stockfish_digital_fen.replace('8', 'XXXXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('7', 'XXXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('6', 'XXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('5', 'XXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('4', 'XXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
+        stockfish_digital_fen = stockfish_digital_fen.replace('/', '')
+        stockfish_digital_fen = stockfish_digital_fen.replace('8', 'XXXXXXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('7', 'XXXXXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('6', 'XXXXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('5', 'XXXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('4', 'XXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
 
-    print(stockfish_digital_fen)
-    print(written_digital_fen)
+        print(stockfish_digital_fen)
+        print(written_digital_fen)
 
-    # Searches for differences in FEN string
-    n = 0
-    for i in range(len(written_digital_fen)):
-        if written_digital_fen[i] == stockfish_digital_fen[i]:
-            n = n
-        else:
-            if written_digital_fen[i] == 'X':
-                num1 = str(8 - math.floor(i / 8))
-                letter1 = str(letters[i % 8])
-                n += 1
+        # Searches for differences in FEN string
+        n = 0
+        for i in range(len(written_digital_fen)):
+            if written_digital_fen[i] == stockfish_digital_fen[i]:
+                n = n
             else:
-                num2 = str(8 - math.floor(i / 8))
-                letter2 = str(letters[i % 8])
-                n += 1
+                if written_digital_fen[i] == 'X':
+                    num1 = str(8 - math.floor(i / 8))
+                    letter1 = str(letters[i % 8])
+                    n += 1
+                else:
+                    num2 = str(8 - math.floor(i / 8))
+                    letter2 = str(letters[i % 8])
+                    n += 1
 
-    oppmove = (letter1 + num1 + letter2 + num2)
-    print(n)
+        oppmove = (letter1 + num1 + letter2 + num2)
+        print(n)
 
-    if n > 3:
-        if player == 'w':
-            if stockfish_digital_fen[5] == written_digital_fen[7]:
-                oppmove = 'e8g8'
+        if n > 3:
+            if player == 'w':
+                if stockfish_digital_fen[5] == written_digital_fen[7]:
+                    oppmove = 'e8g8'
+                else:
+                    oppmove = 'e8c8'
             else:
-                oppmove = 'e8c8'
-        else:
-            if stockfish_digital_fen[61] == written_digital_fen[63]:
-                oppmove = 'e1g1'
-            else:
-                oppmove = 'e1c1'
+                if stockfish_digital_fen[61] == written_digital_fen[63]:
+                    oppmove = 'e1g1'
+                else:
+                    oppmove = 'e1c1'
 
-    # Tries making move, if illegal, bot ends
-    try:
-        print(oppmove)
-        stockfish.make_moves_from_current_position([oppmove])
-    except:
-        print('Your opponent seems to have made an illegal move,',
-              oppmove + '. Make sure move speed is set to "fast" and restart the bot.')
-        sys.exit()
+        # Tries making move, if illegal, bot ends
+        try:
+            print(oppmove)
+            stockfish.make_moves_from_current_position([oppmove])
+        except:
+            print('Your opponent seems to have made an illegal move,',
+                  oppmove + '. Make sure move speed is set to "fast" and restart the bot.')
+            sys.exit()
 
     # PLAYER'S TURN
     eval = str(stockfish.get_evaluation())
