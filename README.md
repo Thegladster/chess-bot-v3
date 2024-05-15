@@ -1,14 +1,15 @@
 <div align="center">
   <h1>♟️ Chess Bot v3 ♟️</h1>
-  <p> <b>Note:</b> This project was designed for Windows OS users.</p>
+  
+  **Note:** This project was designed for Windows OS users.
 <div align="left"> 
   
 <details open>
-<summary>Get Started</summary>
+<summary><b>Get Started</b></summary>
 
 <h4>1. Check Python version and install dependencies</h4>
 
-Download ZIP folder of the repository and extract the files once downloaded. Then open command prompt (Windows + R and type cmd). Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
+**1a.** Download ZIP folder of the repository and extract the files once downloaded. Then open command prompt (Windows + R and type cmd). Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
 
 To find python version, run this line in command prompt:
 
@@ -17,10 +18,20 @@ python --version
 ```
 If python version is less than 3.8.0 or not installed, download [**Python**](https://www.python.org/).
 
-Then, run command
+
+By default, downloads are saved in the Downloads folder, so the following code would generally work for most computers, just replace `user` with the username of the computer,
 
   ```bash
-  cd chess-bot-v3-master
+  cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
+  pip install -r requirements.txt
+  ```
+
+If the file is _not_ saved in the Downloads folder, find the `chess-bot-v3-master` folder, double click, find the secondary `chess-bot-v3-master` folder underneath, right-click the folder, and select 'Copy as Path'.
+
+Run this code in command prompt, but replace line `path/to/chess-bot-v3-master` with the path you copied.
+
+  ```bash
+  cd path/to/chess-bot-v3-master
   pip install -r requirements.txt
   ```
 
@@ -32,7 +43,7 @@ Replace line 24 of `chessbot.py` with `stockfish = Stockfish("path/to/stockfish-
 
 Then, replace all the back slashes with _forward_ slashes.
 
-```bash
+```python
 # Example:
 stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
 ```
@@ -43,14 +54,14 @@ Replace line 38 of `chessbot.py` with `model = torch.hub.load('ultralytics/yolov
 
 Then, once again, replace all the back slashes with forward slashes.
 
-```bash
+```python
 # Example:
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/best.pt')
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;**2c.** Change the variables `square_side`, `left_offset`, and `top_offset`. These will be used to accurately screenshot the board (Resulting screenshot should be just the board).
 
-```bash
+```python
 square_side = x
 left_offset = y
 top_offset = z
