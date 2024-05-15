@@ -139,7 +139,7 @@ If the right side of the chessboard is cropped, change the `square_side` variabl
 
 Replace the variables on `left_offset`, `top_offset`, and `square_side` (lines 17, 18, and 19) with the numbers you used for `screenshot.py`.
 
-After all that, the project should not be ready to run.
+After all that, the project should be ready to run.
 
 <hr>
 
