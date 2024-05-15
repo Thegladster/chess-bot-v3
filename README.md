@@ -24,6 +24,8 @@ If python version is less than 3.8.0 or not installed at all, download Python [*
 
 &nbsp;&nbsp;&nbsp;&nbsp;**c.** Download a text editor. I recommend [**Notepad++**](https://notepad-plus-plus.org/downloads/) (more user-friendly) or [**PyCharm Community Edition**](https://www.jetbrains.com/pycharm/download/?section=windows#section=windows) (specifically made for Python, and is harder to use).
 
+By default, `.py` files will be opened in the application [**Notepad**](https://apps.microsoft.com/detail/9msmlrh6lzf3?hl=en-US&gl=US), but it is _not_ recommended to use because  it is deprecated, and there are much better options nowadays.
+
 <hr>
 
 <h4>2. Install dependencies</h4>
@@ -43,9 +45,9 @@ If `chess-bot-v3-master` is _not_ in the downloads folder, refer to the 2nd issu
 
 <h4>3. Install Stockfish and recognition model.</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**a.** Open the file `chessbot.py` in your text editor.
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Download the latest version of [**Stockfish**](https://stockfishchess.org/download/) (preferably version AVX2 on Windows computers). Extract all files.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**b.** Download the latest version of [**Stockfish**](https://stockfishchess.org/download/) (preferably version AVX2 on Windows computers). Extract all files.
+&nbsp;&nbsp;&nbsp;&nbsp;**b.** Open the file `chessbot.py` in your text editor.
 
 &nbsp;&nbsp;&nbsp;&nbsp;**c.** If your Stockfish folder is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 24), replace the `user` area with the username of the computer.
 
@@ -238,6 +240,24 @@ Run this code in Command Prompt, but replace line `path/to/chess-bot-v3-master` 
 
 ```bash
 pip3 install torch torchvision torchaudio
+```
+
+<h4>4.</h4> Don't know your computer username? Enter this line into your command prompt:
+
+```bash
+whoami
+```
+
+<h4>5.</h4> If you recieve an error that your command isn't found,
+
+```bash
+Error: command not found.
+```
+
+Make sure that you are _not_ in a Python environment, by either closing out the command prompt tab and re-opening, or applying this line:
+
+```bash
+exit()
 ```
 
 If you have additional issues, create an issues post and a detailed description of the issue.
