@@ -9,11 +9,11 @@
 
 <h4>1. Check Python version and install text editor</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**a.** Download ZIP folder of the repository and extract the files once downloaded. Then open command prompt (Windows + R and type cmd). 
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Download ZIP folder of the repository and extract the files once downloaded. Then open Command Prompt (Windows + R and type cmd). 
 
-&nbsp;&nbsp;&nbsp;&nbsp;**b.** Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
+&nbsp;&nbsp;&nbsp;&nbsp;**b.** Make sure Command Prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
 
-To find python version, run this line in command prompt:
+To find python version, run this line in Command Prompt:
 
 ```bash
 python --version
@@ -79,11 +79,13 @@ Remember to save the file (Ctrl+S) once done.
 
 <h4>4. Find the dimensions of the chessboard.</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**a.** Open chess.com, play a game, then abort it right away (to set the code up for accurate dimensions).
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Open chess.com, start a game, then abort it right away (to set the code up for accurate dimensions).
 
 **IMPORTANT:** MAKE SURE YOUR CHESS WINDOW IS IN WINDOWED FULLSCREEN. If your chess window is in split screen mode, then it will _not_ be consistent.
 
 Press the square on the top right of your window to enable Windowed Fullscreen. You can also press key `F11` to enable true Fullscreen, but keep in mind that when using the chess bot in the future, the window will always have to be true fullscreen or else the screenshot will not capture accurately.
+
+Additionally, the chessboard location for playing vs a human and playing vs a computer are in **DIFFERENT SPOTS**. If you would like to use the bot against a computer, then you will have to use different measurements than the one you use for playing against a human.
 
 &nbsp;&nbsp;&nbsp;&nbsp;**b.** Take three screenshots of your chess window.
 
@@ -107,7 +109,7 @@ Press the square on the top right of your window to enable Windowed Fullscreen. 
 
 **NOTE:** The file `screenshot.py` is simply for _testing_ if your dimensions of the chessboard are correct before running it on `chessbot.py`! It is _not_ the chessbot.
 
-Change the variables `square_side`, `left_offset`, and `top_offset`.
+Change the variables `square_side`, `left_offset`, and `top_offset` (lines 7, 8, and 9).
 
 ```python
 # Example (use your own dimensions):
@@ -131,7 +133,9 @@ If the right side of the chessboard is cropped, change the `square_side` variabl
 
 &nbsp;&nbsp;&nbsp;&nbsp;**f.** Once the output screenshot looks like how you want it to (all chess pieces on the board have a label around them, and only the chessboard is in frame, nothing else), open `chessbot.py` on your text editor.
 
-Replace the variables on `left_offset`, `top_offset`, and `square_side` (lines 17, 18, 19) with the numbers you used for `screenshot.py`.
+Replace the variables on `left_offset`, `top_offset`, and `square_side` (lines 17, 18, and 19) with the numbers you used for `screenshot.py`.
+
+After all that, the project should not be ready to run.
 
 <hr>
 
@@ -140,24 +144,33 @@ Replace the variables on `left_offset`, `top_offset`, and `square_side` (lines 1
 &nbsp;&nbsp;&nbsp;&nbsp;Run the project whenever after inputting command,
 
   ```bash
+  cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
   python chessbot.py
   ```
 
-Be sure to reference 'Additional Info' and 'Troubleshooting' for any issues, or create an issue description in the main page.
+Obviously, change the `user` field of the first line to your computer's username.
+
+If already in the folder's directory, only `python chessbot.py` has to be executed.
+
+Be sure to reference 'Additional Info' and 'Troubleshooting/FAQ' for any issues. If you cannot find a solution, create an issue description in the main page.
 
 </details>
 <details>
   
 <summary><b>Additional Info</b></summary>
 
-<h4>please help me out here CJ</h4>
+To know if Command Prompt is already in the folder's directory, run the simple line
 
-CJ will help me see what else to add to the [`requirements.txt`](https://github.com/Thegladster/chess-bot-v3/blob/master/requirements.txt) file because I don't really know yet, note add pyautogui
+```bash
+cd
+```
 
-After installing requirements, if command prompt is reopened, the folder has to be directed into to find the python code.
+and the output will be what directory (folder) Command Prompt is currently looking into.
+
+After installing requirements, if Command Prompt is reopened, the folder has to be directed into to find the python code.
 
   ```bash
-  cd chess-bot-v3-master
+  cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
   python chessbot.py
   ```
 
@@ -182,7 +195,7 @@ pip install [title]
 ```
 with `title` being the name of the missing module.
 
-<h4>2.</h4> If, when inputting this command into command prompt,
+<h4>2.</h4> If, when inputting this command into Command Prompt,
 
  ```bash
   cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
@@ -197,11 +210,19 @@ The system cannot find the path specified.
 
 find the `chess-bot-v3-master` folder, double click, find the secondary `chess-bot-v3-master` folder underneath, right-click the folder, and select 'Copy as Path'.
 
-Run this code in command prompt, but replace line `path/to/chess-bot-v3-master` with the path you copied.
+Run this code in Command Prompt, but replace line `path/to/chess-bot-v3-master` with the path you copied.
 
   ```bash
   # Example
   cd path/to/chess-bot-v3-master
   pip install -r requirements.txt
   ```
+
+<h4>3.</h4> If the `torch` module is having trouble installing, install the CPU version instead through `pip`,
+
+```bash
+pip3 install torch torchvision torchaudio
+```
+
+If you have additional issues, create an issues post and a detailed description of the issue.
 </details>
