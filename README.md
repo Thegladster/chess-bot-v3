@@ -178,6 +178,17 @@ After installing requirements, if Command Prompt is reopened, the folder has to 
   python chessbot.py
   ```
 
+<h4>2.</h4> 
+
+To raise or lower the engine's ELO (skill level), adjust variables `a` and `b` (lines 33 and 34).
+
+```python
+a = 2000
+b = 2400
+```
+
+`a` represents the minimum elo, and `b` represents the maximum ELO; every move, it picks a random integer in between this range to vary the skill level.
+
 </details>
 <details>
 
