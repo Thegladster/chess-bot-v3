@@ -21,7 +21,7 @@ right_offset = monwidth - (left_offset + square_side * 8)
 bottom_offset = (monheight - top_offset - square_side * 8)
 
 # Initialization
-stockfish = Stockfish("C:/Users/LY GAMING PC/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
+stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 player = "unknown"
@@ -35,7 +35,7 @@ stockfish.set_skill_level(b)
 
 print("Loading model...")
 # Model
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/LY GAMING PC/yolov5/best.pt')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
 model.conf = 0.8
 
 def screenshot():
