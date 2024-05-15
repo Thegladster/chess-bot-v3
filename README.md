@@ -20,7 +20,7 @@ python --version
 ```
 If python version is less than 3.8.0 or not installed at all, download Python [**here**](https://www.python.org/).
 
-&nbsp;&nbsp;&nbsp;&nbsp;**c.** Download a text editor. I recommend [**Notepad++**](https://notepad-plus-plus.org/downloads/) (more user-friendly) or [**PyCharm Community Edition**](https://www.jetbrains.com/pycharm/download/?section=windows#section=windows) (specifically made for Python, is harder to use).
+&nbsp;&nbsp;&nbsp;&nbsp;**c.** Download a text editor. I recommend [**Notepad++**](https://notepad-plus-plus.org/downloads/) (more user-friendly) or [**PyCharm Community Edition**](https://www.jetbrains.com/pycharm/download/?section=windows#section=windows) (specifically made for Python, and is harder to use).
 
 <hr>
 
@@ -35,24 +35,9 @@ Simply copy this text into the text editor you downloaded in the previous step, 
   pip install -r requirements.txt
   ```
 
-If the following command leads to error,
-
-```bash
-The system cannot find the path specified.
-```
-
-find the `chess-bot-v3-master` folder, double click, find the secondary `chess-bot-v3-master` folder underneath, right-click the folder, and select 'Copy as Path'.
-
-Run this code in command prompt, but replace line `path/to/chess-bot-v3-master` with the path you copied.
-
-  ```bash
-  cd path/to/chess-bot-v3-master
-  pip install -r requirements.txt
-  ```
-
 <hr>
 
-<h4>3. Modify the chessbot.py file.</h4>
+<h4>3. Install Stockfish and recognition model.</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;**a.** Open the file `chessbot.py` in your text editor.
 
@@ -79,16 +64,18 @@ If your `best.pt` file is in the 'Downloads' area of your computer, in your `che
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
 ```
 
-Replace line 38 of `chessbot.py` with `model = torch.hub.load('ultralytics/yolov5', 'custom', path='path/to/best.pt')`, but with the actual path to the `best.pt` file (Right click on the `best.pt` file and select 'Copy as Path').
-
-Then, once again, replace all the back slashes with forward slashes.
+&nbsp;&nbsp;&nbsp;&nbsp;**f.** If the `best.pt` file is another directory, locate the file (via search), copy the path, and replace the path in line 38.
+**IMPORTANT:** Make sure that you replace all the back slashes with _forward slashes._
 
 ```python
-# Example:
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/best.pt')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='path/to/best.pt')
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;**2c.** Change the variables `square_side`, `left_offset`, and `top_offset`. These will be used to accurately screenshot the board (Resulting screenshot should be just the board).
+<hr>
+
+<h4>4. Find the dimensions of the chessboard.</h4>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Change the variables `square_side`, `left_offset`, and `top_offset`. These will be used to accurately screenshot the board (Resulting screenshot should be just the board).
 
 ```python
 square_side = x
@@ -98,9 +85,11 @@ top_offset = z
 
 Make sure to save changes before running.
 
-<h4>3. Running the project</h4>
+<hr>
 
-Run the project whenever after inputting command,
+<h4>5. Running the project</h4>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Run the project whenever after inputting command,
 
   ```bash
   python chessbot.py
@@ -111,7 +100,7 @@ Be sure to reference 'Additional Info' and 'Troubleshooting' for any issues, or 
 </details>
 <details>
   
-<summary>Additional Info</summary>
+<summary><b>Additional Info</b></summary>
 
 <h4>please help me out here CJ</h4>
 
@@ -127,7 +116,7 @@ After installing requirements, if command prompt is reopened, the folder has to 
 </details>
 <details>
 
-<summary>Troubleshooting</summary>
+<summary><b>Troubleshooting/FAQ</b></summary>
 
 <h4>1.</h4>
 
@@ -145,4 +134,26 @@ pip install [title]
 ```
 with `title` being the name of the missing module.
 
+<h4>2.</h4> If, when inputting this command into command prompt,
+
+ ```bash
+  cd C:\Users\user\Downloads\chess-bot-v3-master\chess-bot-v3-master
+  pip install -r requirements.txt
+  ```
+
+the error arises,
+
+```bash
+The system cannot find the path specified.
+```
+
+find the `chess-bot-v3-master` folder, double click, find the secondary `chess-bot-v3-master` folder underneath, right-click the folder, and select 'Copy as Path'.
+
+Run this code in command prompt, but replace line `path/to/chess-bot-v3-master` with the path you copied.
+
+  ```bash
+  # Example
+  cd path/to/chess-bot-v3-master
+  pip install -r requirements.txt
+  ```
 </details>
