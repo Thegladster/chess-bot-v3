@@ -159,7 +159,7 @@ Be sure to reference 'Additional Info' and 'Troubleshooting/FAQ' for any issues.
   
 <summary><b>Additional Info</b></summary>
 
-To know if Command Prompt is already in the folder's directory, run the simple line
+<h4>1.</h4> To know if Command Prompt is already in the folder's directory, run the simple line
 
 ```bash
 cd
