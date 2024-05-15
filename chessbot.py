@@ -26,7 +26,8 @@ temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 player = "unknown"
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-timevar = float(input("Time control? (min.) "))
+timevar = input("Time control? (min.) ")
+timevar = float(timevar)
 
 # STOCKFISH SKILL (a = minimum skill, b = maximum, max possible is 20)
 a = 10
