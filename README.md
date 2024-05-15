@@ -6,7 +6,7 @@
 <details open>
 <summary>Get Started</summary>
 
-<h4>1. Check python version and install dependencies</h4>
+<h4>1. Check Python version and install dependencies</h4>
 
 Download ZIP folder of the repository and extract the files once downloaded. Then open command prompt (Windows + R and type cmd). Make sure command prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
 
@@ -26,7 +26,7 @@ Then, run command
 
 <h4>2. Modify the chessbot.py file.</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**2a.** Download [**Stockfish>=16.1.0**](https://stockfishchess.org/download/) (preferably version AVX2 on Windows computers). Unzip the folder, and locate `stockfish-windows-x86-64-avx2.exe`. 
+&nbsp;&nbsp;&nbsp;&nbsp;**2a.** Download [**Stockfish**](https://stockfishchess.org/download/) (preferably version AVX2 on Windows computers). Unzip the folder, and locate `stockfish-windows-x86-64-avx2.exe`. 
 
 Replace line 24 of `chessbot.py` with `stockfish = Stockfish("path/to/stockfish-windows-x86-64-avx2.exe")`, but with the actual path to your local file (Right click on the `.exe` file and select 'Copy as Path').
 
