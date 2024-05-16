@@ -188,15 +188,12 @@ Using just the line `python chessbot.py` will not work unless you are **already*
 
 <h4>2.</h4> 
 
-To raise or lower the engine's ELO (skill level), adjust variables `a` and `b` (lines 33 and 34).
+To raise or lower the engine's ELO (skill level), adjust variable `a` (lines 33 and 34).
 
 ```python
 a = 2500
-b = 3000
-stockfish.set_elo_rating(b)
+stockfish.set_elo_rating(a)
 ```
-
-`a` represents the minimum elo, and `b` represents the maximum ELO; every move, it picks a random integer in between this range to vary the skill level.
 
 <hr>
 
