@@ -173,6 +173,9 @@ def FEN_addition():
                 castling = input("Specify castling: [K/Q/k/q]: ")
                 player = input("What color player are you? [w/b]: ")
 
+                if castling == '':
+                    castling = '-'
+                    
     if player == "b":
         written_real_fen = written_real_fen[::-1]
 
