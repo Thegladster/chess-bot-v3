@@ -158,7 +158,7 @@ Obviously, change the `user` field of the first line to your computer's username
 
 If already in the folder's directory, only `python chessbot.py` has to be executed.
 
-Be sure to reference 'Additional Info' and 'Troubleshooting/FAQ' for any issues. If you cannot find a solution, create an issue description in the main page.
+**IMPORTANT:* Be sure to reference 'Additional Info' and 'Troubleshooting/FAQ' for further customization/inquiries. If you cannot find a solution to a problem in 'Troubleshooting/FAQ`, create an issue description in the main page.
 
 </details>
 <details>
@@ -180,6 +180,8 @@ After installing requirements, if Command Prompt is reopened, the folder has to 
   python chessbot.py
   ```
 
+Using just the line `python chessbot.py` will not work unless you are **already** in the `chess-bot-v3-master` directory!
+
 <hr>
 
 <h4>2.</h4> 
@@ -187,11 +189,28 @@ After installing requirements, if Command Prompt is reopened, the folder has to 
 To raise or lower the engine's ELO (skill level), adjust variables `a` and `b` (lines 33 and 34).
 
 ```python
-a = 2000
-b = 2400
+a = 2500
+b = 3000
+stockfish.set_elo_rating(b)
 ```
 
 `a` represents the minimum elo, and `b` represents the maximum ELO; every move, it picks a random integer in between this range to vary the skill level.
+
+<hr>
+
+<h4>3.</h4>
+
+Confused on the `Specify castling: [K/Q/k/q]:` input? This question simply asks if the king _can_ castle queenside or kingside. It does not matter what pieces are in the way.
+
+Castling will normally always be KQkq (`K` representing kingside _white_ castling, `Q` representing queenside _white_ castling, `k` representing kingside _black_ castling, and `q` representing queenside _black_ castling). There are many exceptions, however.
+
+&nbsp;&nbsp;&nbsp;&nbsp;**1.** The king has been moved. If the king has been moved in previous moves, the king for that color will _never_ be able to castle that round!
+
+Example: if the white king moves up, then castling can only occur for the black side, and input would be `kq`.
+
+&nbsp;&nbsp;&nbsp;&nbsp;**2.** The rook has moved. There are two rooks, the [**queenside rook and the kingside rook**](https://herculeschess.com/wp-content/uploads/2020/04/chess-side.gif). If the queenside rook for the black side moves, for instance, castling _cannot_ occur with that rook, meaning the input for the user would be `KQk` (assuming all other rooks and kings have remained stationary).
+
+**IMPORTANT:** Make sure the input is always in the order `KQkq`! An input such as `kQKq` will be invalid.
 
 </details>
 <details>
