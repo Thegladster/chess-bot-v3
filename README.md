@@ -260,7 +260,9 @@ Run this code in Command Prompt, but replace line `path/to/chess-bot-v3-master` 
 
 <hr>
 
-<h4>3.</h4> If the `torch` module is having trouble installing, install the CPU version instead through `pip`,
+<h4>3.</h4> 
+
+If the `torch` module is having trouble installing, install the CPU version instead through `pip`,
 
 ```bash
 pip3 install torch torchvision torchaudio
