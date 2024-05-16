@@ -188,7 +188,7 @@ Using just the line `python chessbot.py` will not work unless you are **already*
 
 <h4>2.</h4> 
 
-To raise or lower the engine's ELO (skill level), adjust variable `a` (lines 33 and 34).
+To raise or lower the engine's ELO (skill level), adjust variable `a` (line 33).
 
 ```python
 a = 2500
