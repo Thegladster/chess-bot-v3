@@ -21,7 +21,8 @@ right_offset = monwidth - (left_offset + square_side * 8)
 bottom_offset = (monheight - top_offset - square_side * 8)
 
 # Initialization
-stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
+stockfish = Stockfish(
+    "C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 player = "unknown"
@@ -38,6 +39,7 @@ print("Loading model...")
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
 model.conf = 0.8
 
+
 def screenshot():
     global df
 
@@ -50,14 +52,17 @@ def screenshot():
     # results.show()
     df = (results.pandas().xyxy[0])
 
+
 def isolate(column, row):
     r = (df.loc[row])
     iso = str(r[[column]])
     return iso
 
+
 def find_class(cs):
     piece = ('b', 'k', 'n', 'p', 'q', 'r', 'B', 'K', 'N', 'P', 'Q', 'R')
-    return(piece[cs])
+    return (piece[cs])
+
 
 def write_FEN():
     global written_real_fen
@@ -140,8 +145,9 @@ def write_FEN():
     if player == "b":
         written_real_fen = written_real_fen[::-1]
         written_digital_fen = written_digital_fen[::-1]
-def FEN_addition():
 
+
+def FEN_addition():
     # FEN additional info
     global additional
     global written_real_fen
@@ -174,7 +180,7 @@ def FEN_addition():
 
                 if castling == '':
                     castling = '-'
-                    
+
     if player == "b":
         written_real_fen = written_real_fen[::-1]
 
@@ -182,8 +188,10 @@ def FEN_addition():
     written_fen = written_real_fen + additional
     print(written_fen)
 
+
 def conversion(coord, location):
-    return(letters.index(coord[location]))
+    return (letters.index(coord[location]))
+
 
 def move_mouse(x1, y1, x2, y2):
     x1 = int(x1)
@@ -192,11 +200,16 @@ def move_mouse(x1, y1, x2, y2):
     y2 = int(y2)
 
     if player == "w":
-        pyautogui.click(left_offset + square_side * x1 + square_side / 2, monheight - bottom_offset - square_side * y1 + square_side / 2, button='left')
-        pyautogui.click(left_offset + square_side * x2 + square_side / 2, monheight - bottom_offset - square_side * y2 + square_side / 2, button='left')
+        pyautogui.click(left_offset + square_side * x1 + square_side / 2,
+                        monheight - bottom_offset - square_side * y1 + square_side / 2, button='left')
+        pyautogui.click(left_offset + square_side * x2 + square_side / 2,
+                        monheight - bottom_offset - square_side * y2 + square_side / 2, button='left')
     else:
-        pyautogui.click(monwidth - right_offset - square_side * x1 - square_side / 2, top_offset + square_side * y1 - square_side / 2, button='left')
-        pyautogui.click(monwidth - right_offset - square_side * x2 - square_side / 2, top_offset + square_side * y2 - square_side / 2, button='left')
+        pyautogui.click(monwidth - right_offset - square_side * x1 - square_side / 2,
+                        top_offset + square_side * y1 - square_side / 2, button='left')
+        pyautogui.click(monwidth - right_offset - square_side * x2 - square_side / 2,
+                        top_offset + square_side * y2 - square_side / 2, button='left')
+
 
 # Running commands
 time_constraint = 0
@@ -262,51 +275,103 @@ while not keyboard.is_pressed('p'):
         screenshot()
         write_FEN()
 
-    # Conversion from real FEN to digital
+        # Conversion from real FEN to digital
 
-    written_digital_fen = written_real_fen
-    stockfish_digital_fen = stockfish_real_fen
+        written_digital_fen = written_real_fen
+        stockfish_digital_fen = stockfish_real_fen
 
-    written_digital_fen = written_digital_fen.replace('/', '')
-    written_digital_fen = written_digital_fen.replace('8', 'XXXXXXXX')
-    written_digital_fen = written_digital_fen.replace('7', 'XXXXXXX')
-    written_digital_fen = written_digital_fen.replace('6', 'XXXXXX')
-    written_digital_fen = written_digital_fen.replace('5', 'XXXXX')
-    written_digital_fen = written_digital_fen.replace('4', 'XXXX')
-    written_digital_fen = written_digital_fen.replace('3', 'XXX')
-    written_digital_fen = written_digital_fen.replace('2', 'XX')
-    written_digital_fen = written_digital_fen.replace('1', 'X')
+        written_digital_fen = written_digital_fen.replace('/', '')
+        written_digital_fen = written_digital_fen.replace('8', 'XXXXXXXX')
+        written_digital_fen = written_digital_fen.replace('7', 'XXXXXXX')
+        written_digital_fen = written_digital_fen.replace('6', 'XXXXXX')
+        written_digital_fen = written_digital_fen.replace('5', 'XXXXX')
+        written_digital_fen = written_digital_fen.replace('4', 'XXXX')
+        written_digital_fen = written_digital_fen.replace('3', 'XXX')
+        written_digital_fen = written_digital_fen.replace('2', 'XX')
+        written_digital_fen = written_digital_fen.replace('1', 'X')
 
-    stockfish_digital_fen = stockfish_digital_fen.replace('/', '')
-    stockfish_digital_fen = stockfish_digital_fen.replace('8', 'XXXXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('7', 'XXXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('6', 'XXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('5', 'XXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('4', 'XXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
+        stockfish_digital_fen = stockfish_digital_fen.replace('/', '')
+        stockfish_digital_fen = stockfish_digital_fen.replace('8', 'XXXXXXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('7', 'XXXXXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('6', 'XXXXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('5', 'XXXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('4', 'XXXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
+        stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
 
-    print(stockfish_digital_fen)
-    print(written_digital_fen)
+        print(stockfish_digital_fen)
+        print(written_digital_fen)
 
-    # Searches for differences in FEN string
-    n = 0
-    for i in range(len(written_digital_fen)):
-        if written_digital_fen[i] == stockfish_digital_fen[i]:
-            n = n
-        else:
-            if written_digital_fen[i] == 'X':
-                num1 = str(8 - math.floor(i / 8))
-                letter1 = str(letters[i % 8])
-                n += 1
-            else:
-                num2 = str(8 - math.floor(i / 8))
-                letter2 = str(letters[i % 8])
-                n += 1
 
-    oppmove = (letter1 + num1 + letter2 + num2)
-    print(n)
+        # Searches for differences in FEN string
+        try:
+            n = 0
+            for i in range(len(written_digital_fen)):
+                if written_digital_fen[i] == stockfish_digital_fen[i]:
+                    n = n
+                else:
+                    if written_digital_fen[i] == 'X':
+                        num1 = str(8 - math.floor(i / 8))
+                        letter1 = str(letters[i % 8])
+                        n += 1
+                    else:
+                        num2 = str(8 - math.floor(i / 8))
+                        letter2 = str(letters[i % 8])
+                        n += 1
+
+            oppmove = (letter1 + num1 + letter2 + num2)
+            print(n)
+        except:
+            time.sleep(0.5)
+            screenshot()
+            write_FEN()
+
+            # Conversion from real FEN to digital
+
+            written_digital_fen = written_real_fen
+            stockfish_digital_fen = stockfish_real_fen
+
+            written_digital_fen = written_digital_fen.replace('/', '')
+            written_digital_fen = written_digital_fen.replace('8', 'XXXXXXXX')
+            written_digital_fen = written_digital_fen.replace('7', 'XXXXXXX')
+            written_digital_fen = written_digital_fen.replace('6', 'XXXXXX')
+            written_digital_fen = written_digital_fen.replace('5', 'XXXXX')
+            written_digital_fen = written_digital_fen.replace('4', 'XXXX')
+            written_digital_fen = written_digital_fen.replace('3', 'XXX')
+            written_digital_fen = written_digital_fen.replace('2', 'XX')
+            written_digital_fen = written_digital_fen.replace('1', 'X')
+
+            stockfish_digital_fen = stockfish_digital_fen.replace('/', '')
+            stockfish_digital_fen = stockfish_digital_fen.replace('8', 'XXXXXXXX')
+            stockfish_digital_fen = stockfish_digital_fen.replace('7', 'XXXXXXX')
+            stockfish_digital_fen = stockfish_digital_fen.replace('6', 'XXXXXX')
+            stockfish_digital_fen = stockfish_digital_fen.replace('5', 'XXXXX')
+            stockfish_digital_fen = stockfish_digital_fen.replace('4', 'XXXX')
+            stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
+            stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
+            stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
+
+            print(stockfish_digital_fen)
+            print(written_digital_fen)
+
+            # Searches for differences in FEN string
+            n = 0
+            for i in range(len(written_digital_fen)):
+                if written_digital_fen[i] == stockfish_digital_fen[i]:
+                    n = n
+                else:
+                    if written_digital_fen[i] == 'X':
+                        num1 = str(8 - math.floor(i / 8))
+                        letter1 = str(letters[i % 8])
+                        n += 1
+                    else:
+                        num2 = str(8 - math.floor(i / 8))
+                        letter2 = str(letters[i % 8])
+                        n += 1
+
+            oppmove = (letter1 + num1 + letter2 + num2)
+            print(n)
 
     if n > 3:
         if player == 'w':
