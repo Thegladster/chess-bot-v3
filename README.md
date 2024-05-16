@@ -158,7 +158,9 @@ Obviously, change the `user` field of the first line to your computer's username
 
 If already in the folder's directory, only `python chessbot.py` has to be executed.
 
-**IMPORTANT:* Be sure to reference 'Additional Info' and 'Troubleshooting/FAQ' for further customization/inquiries. If you cannot find a solution to a problem in 'Troubleshooting/FAQ`, create an issue description in the main page.
+If you want the chessbot to stop (as long as it is already moving the mouse for you), press the `p` key on your computer and hold it down until the process is aborted.
+
+**IMPORTANT:** Be sure to reference 'Additional Info' and 'Troubleshooting/FAQ' for further customization/inquiries. If you cannot find a solution to a problem in 'Troubleshooting/FAQ`, create an issue description in the main page.
 
 </details>
 <details>
