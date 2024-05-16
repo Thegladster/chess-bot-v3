@@ -29,10 +29,10 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 timevar = input("Time control? (min.) ")
 timevar = float(timevar)
 
-# STOCKFISH SKILL (a = minimum skill, b = maximum, max possible is 20)
-a = 10
-b = 20
-stockfish.set_skill_level(b)
+# STOCKFISH ELO (a = minimum, b = maximum, max possible is ~3500)
+a = 2500
+b = 3000
+stockfish.set_elo_rating(b)
 
 print("Loading model...")
 # Model
@@ -142,11 +142,13 @@ def write_FEN():
         written_real_fen = written_real_fen[::-1]
         written_digital_fen = written_digital_fen[::-1]
 def FEN_addition():
+
     # FEN additional info
     global additional
     global written_real_fen
     global written_fen
     global player
+    global move
 
     if written_real_fen == "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR":
         move = "w"
@@ -200,9 +202,19 @@ screenshot()
 write_FEN()
 FEN_addition()
 
+# Checks if it is your turn
+while not player == move:
+    old_fen = written_real_fen
+    screenshot()
+    write_FEN()
+
+    if old_fen == written_real_fen:
+        player = move
+
 # Finds best move
 stockfish.set_fen_position(written_fen)
 bestmove = stockfish.get_best_move()
+print(bestmove)
 
 # Sets x/y coordinates for mouse travel
 x1 = (conversion(bestmove, 0))
@@ -210,6 +222,21 @@ y1 = (bestmove[1])
 x2 = (conversion(bestmove, 2))
 y2 = (bestmove[3])
 move_mouse(x1, y1, x2, y2)
+
+# Clicks extra option if move is promotion:
+mousex = pyautogui.position()
+mousey = mousex[1]
+mousex = mousex[0]
+
+if len(bestmove) > 4:
+    if bestmove[4] == 'q':
+        pyautogui.click(mousex, mousey, button='left')
+    if bestmove[4] == 'n':
+        pyautogui.click(mousex, mousey + square_side, button='left')
+    if bestmove[4] == 'r':
+        pyautogui.click(mousex, mousey + square_side * 2, button='left')
+    if bestmove[4] == 'b':
+        pyautogui.click(mousex, mousey + square_side * 3, button='left')
 
 # Makes move in Stockfish and gets Stockfish FEN
 stockfish.make_moves_from_current_position([bestmove])
@@ -373,7 +400,7 @@ while not keyboard.is_pressed('p'):
     eval = str(stockfish.get_evaluation())
     print(eval[0])
 
-    stockfish.set_skill_level((random.randint(a, b)))
+    stockfish.set_elo_rating(random.randint(a, b))
 
     if time_constraint < 8:
         bestmove = stockfish.get_best_move_time(100)
@@ -386,6 +413,21 @@ while not keyboard.is_pressed('p'):
     x2 = (conversion(bestmove, 2))
     y2 = (bestmove[3])
     move_mouse(x1, y1, x2, y2)
+
+    # Clicks extra option if move is promotion:
+    mousex = pyautogui.position()
+    mousey = mousex[1]
+    mousex = mousex[0]
+
+    if len(bestmove) > 4:
+        if bestmove[4] == 'q':
+            pyautogui.click(mousex, mousey, button='left')
+        if bestmove[4] == 'n':
+            pyautogui.click(mousex, mousey + square_side, button='left')
+        if bestmove[4] == 'r':
+            pyautogui.click(mousex, mousey + square_side * 2, button='left')
+        if bestmove[4] == 'b':
+            pyautogui.click(mousex, mousey + square_side * 3, button='left')
 
     # Makes move in Stockfish and gets Stockfish FEN
     stockfish.make_moves_from_current_position([bestmove])
