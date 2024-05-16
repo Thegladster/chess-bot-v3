@@ -31,8 +31,7 @@ timevar = float(timevar)
 
 # STOCKFISH ELO (a = minimum, b = maximum, max possible is ~3500)
 a = 2500
-b = 3000
-stockfish.set_elo_rating(b)
+stockfish.set_elo_rating(a)
 
 print("Loading model...")
 # Model
@@ -403,7 +402,7 @@ while not keyboard.is_pressed('p'):
     eval = str(stockfish.get_evaluation())
     print(eval[0])
 
-    stockfish.set_elo_rating(random.randint(a, b))
+    stockfish.set_elo_rating(a)
 
     if time_constraint < 8:
         bestmove = stockfish.get_best_move_time(100)
