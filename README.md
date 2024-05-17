@@ -49,7 +49,7 @@ Simply copy this text into the text editor you downloaded in the previous step, 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**b.** Open the file `chessbot.py` in your text editor.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**c.** If your Stockfish folder is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 25), replace the `user` area with the username of the computer.
+&nbsp;&nbsp;&nbsp;&nbsp;**c.** If your Stockfish folder is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 24), replace the `user` area with the username of the computer.
 
 ```python
 stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
@@ -71,7 +71,7 @@ If your `best.pt` file is in the 'Downloads' area of your computer, in your `che
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
 ```
 
-If the `best.pt` file is another directory, locate the file (via search), copy the path, and replace the path in line 38.
+If the `best.pt` file is another directory, locate the file (via search), copy the path, and replace the path in line 39.
 
 **IMPORTANT:** Make sure that you replace all the back slashes with _forward slashes._
 
