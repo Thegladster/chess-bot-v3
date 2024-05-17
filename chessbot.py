@@ -37,7 +37,7 @@ print("Loading model...")
 
 # Model (EDIT THE FOLLOWING LINE)
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
-model.conf = 0.8
+model.conf = 0.9
 
 
 def screenshot():
@@ -211,6 +211,32 @@ def move_mouse(x1, y1, x2, y2):
                         top_offset + square_side * y2 - square_side / 2, button='left')
 
 
+def write_digital_FEN():
+    global written_digital_fen
+    global stockfish_digital_fen
+    written_digital_fen = written_real_fen
+    stockfish_digital_fen = stockfish_real_fen
+    written_digital_fen = written_digital_fen.replace('/', '')
+    written_digital_fen = written_digital_fen.replace('8', 'XXXXXXXX')
+    written_digital_fen = written_digital_fen.replace('7', 'XXXXXXX')
+    written_digital_fen = written_digital_fen.replace('6', 'XXXXXX')
+    written_digital_fen = written_digital_fen.replace('5', 'XXXXX')
+    written_digital_fen = written_digital_fen.replace('4', 'XXXX')
+    written_digital_fen = written_digital_fen.replace('3', 'XXX')
+    written_digital_fen = written_digital_fen.replace('2', 'XX')
+    written_digital_fen = written_digital_fen.replace('1', 'X')
+    stockfish_digital_fen = stockfish_digital_fen.replace('/', '')
+    stockfish_digital_fen = stockfish_digital_fen.replace('8', 'XXXXXXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('7', 'XXXXXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('6', 'XXXXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('5', 'XXXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('4', 'XXXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
+    stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
+    print(stockfish_digital_fen)
+    print(written_digital_fen)
+    
 # Running commands
 time_constraint = 0
 screenshot()
@@ -281,37 +307,10 @@ while not keyboard.is_pressed('p'):
     time.sleep(0.1)
     screenshot()
     write_FEN()
-
-    # Conversion from real FEN to digital
-    written_digital_fen = written_real_fen
-    stockfish_digital_fen = stockfish_real_fen
-
-    written_digital_fen = written_digital_fen.replace('/', '')
-    written_digital_fen = written_digital_fen.replace('8', 'XXXXXXXX')
-    written_digital_fen = written_digital_fen.replace('7', 'XXXXXXX')
-    written_digital_fen = written_digital_fen.replace('6', 'XXXXXX')
-    written_digital_fen = written_digital_fen.replace('5', 'XXXXX')
-    written_digital_fen = written_digital_fen.replace('4', 'XXXX')
-    written_digital_fen = written_digital_fen.replace('3', 'XXX')
-    written_digital_fen = written_digital_fen.replace('2', 'XX')
-    written_digital_fen = written_digital_fen.replace('1', 'X')
-
-    stockfish_digital_fen = stockfish_digital_fen.replace('/', '')
-    stockfish_digital_fen = stockfish_digital_fen.replace('8', 'XXXXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('7', 'XXXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('6', 'XXXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('5', 'XXXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('4', 'XXXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
-    stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
-
-    print(stockfish_digital_fen)
-    print(written_digital_fen)
-
+    write_digital_FEN()
     n = 0
-
-    # To end when there are weird exception FEN errors
+    
+    # To retry when there are weird exception FEN errors
     if len(written_digital_fen) == len(stockfish_digital_fen):
         for i in range(len(written_digital_fen)):
             if written_digital_fen[i] == stockfish_digital_fen[i]:
@@ -325,6 +324,27 @@ while not keyboard.is_pressed('p'):
                     num2 = str(8 - math.floor(i / 8))
                     letter2 = str(letters[i % 8])
                     n += 1
+    else:
+        time.sleep(0.25)
+        screenshot()
+        write_FEN()
+        write_digital_FEN()
+        n = 0
+
+        # To end when there are weird exception FEN errors
+        if len(written_digital_fen) == len(stockfish_digital_fen):
+            for i in range(len(written_digital_fen)):
+                if written_digital_fen[i] == stockfish_digital_fen[i]:
+                    n = n
+                else:
+                    if written_digital_fen[i] == 'X':
+                        num1 = str(8 - math.floor(i / 8))
+                        letter1 = str(letters[i % 8])
+                        n += 1
+                    else:
+                        num2 = str(8 - math.floor(i / 8))
+                        letter2 = str(letters[i % 8])
+                        n += 1
         else:
             print('Something went wrong.')
 
@@ -358,6 +378,7 @@ while not keyboard.is_pressed('p'):
 
             print(oppmove)
             stockfish.make_moves_from_current_position([oppmove])
+            time_constraint += 1
         except:
             print('Your opponent seems to have made an illegal move,',
                 oppmove + '. Make sure move speed is set to "fast" and restart the bot.')
