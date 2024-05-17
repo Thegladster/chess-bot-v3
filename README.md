@@ -24,7 +24,7 @@ If python version is less than 3.8.0 or not installed at all, download Python [*
 
 &nbsp;&nbsp;&nbsp;&nbsp;**c.** Download a text editor. I recommend [**Notepad++**](https://notepad-plus-plus.org/downloads/) (more user-friendly) or [**PyCharm Community Edition**](https://www.jetbrains.com/pycharm/download/?section=windows#section=windows) (specifically made for Python, and is harder to use).
 
-By default, `.py` files will be opened in the application [**Notepad**](https://apps.microsoft.com/detail/9msmlrh6lzf3?hl=en-US&gl=US), but it is _not_ recommended to use because  it is deprecated, and there are much better options nowadays.
+> By default, `.py` files will be opened in the application [**Notepad**](https://apps.microsoft.com/detail/9msmlrh6lzf3?hl=en-US&gl=US), but it is _not_ recommended to use because  it is deprecated, and there are much better options nowadays.
 
 <hr>
 
@@ -39,7 +39,7 @@ Simply copy this text into the text editor you downloaded in the previous step, 
   pip install -r requirements.txt
   ```
 
-If `chess-bot-v3-master` is _not_ in the downloads folder, refer to the 2nd issue in the Troubleshooting/FAQ section of this document.
+> If `chess-bot-v3-master` is _not_ in the downloads folder, refer to the 2nd issue in the Troubleshooting/FAQ section of this document.
 
 <hr>
 
@@ -55,7 +55,7 @@ If `chess-bot-v3-master` is _not_ in the downloads folder, refer to the 2nd issu
 stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;**d.** If the Stockfish folder is another directory, locate the `stockfish-windows-x86-64-avx2.exe` file within the folder (via search), copy the path, and replace the path in line 24.
+If the Stockfish folder is another directory, locate the `stockfish-windows-x86-64-avx2.exe` file within the folder (via search), copy the path, and replace the path in line 24.
 
 **IMPORTANT:** Make sure that you replace all the back slashes with _forward slashes._
 
@@ -63,7 +63,7 @@ stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/sto
 stockfish = Stockfish("path/to/stockfish-windows-x86-64-avx2.exe")
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;**e.** Download file [**best.pt**](https://drive.google.com/file/d/1qWDevhJstvmbeFPu9nRYgxwbgm6eo1My/view?usp=sharing) from Google Drive (filesize is too large for GitHub.)
+&nbsp;&nbsp;&nbsp;&nbsp;**d.** Download file [**best.pt**](https://drive.google.com/file/d/1qWDevhJstvmbeFPu9nRYgxwbgm6eo1My/view?usp=sharing) from Google Drive (filesize is too large for GitHub.)
 
 If your `best.pt` file is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 38), replace the `user` area with the username of the computer.
 
@@ -71,7 +71,7 @@ If your `best.pt` file is in the 'Downloads' area of your computer, in your `che
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;**f.** If the `best.pt` file is another directory, locate the file (via search), copy the path, and replace the path in line 38.
+If the `best.pt` file is another directory, locate the file (via search), copy the path, and replace the path in line 38.
 
 **IMPORTANT:** Make sure that you replace all the back slashes with _forward slashes._
 
@@ -79,7 +79,7 @@ model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downl
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='path/to/best.pt')
 ```
 
-Remember to save the file (Ctrl+S) once done.
+> Remember to save the file (Ctrl+S) once done.
 
 <hr>
 
@@ -89,9 +89,9 @@ Remember to save the file (Ctrl+S) once done.
 
 **IMPORTANT:** MAKE SURE YOUR CHESS WINDOW IS IN WINDOWED FULLSCREEN. If your chess window is in split screen mode, then it will _not_ be consistent.
 
-Press the square on the top right of your window to enable Windowed Fullscreen. You can also press key `F11` to enable true Fullscreen, but keep in mind that when using the chess bot in the future, the window will always have to be true fullscreen or else the screenshot will not capture accurately.
+Press the square on the top right of your window to enable Windowed Fullscreen. You can also press key `F11` to enable true Fullscreen, but keep in mind that when using the chess bot in the future, the window will always have to be true fullscreen or else _the screenshot will not capture accurately_.
 
-Additionally, the chessboard location for playing vs a human and playing vs a computer are in **DIFFERENT SPOTS**. If you would like to use the bot against a computer, then you will have to use different measurements than the one you use for playing against a human.
+> The chessboard location for playing vs a human and playing vs a computer are in **DIFFERENT SPOTS**. If you would like to use the bot against a computer, then you will have to use different measurements than the one you use for playing against a human.
 
 &nbsp;&nbsp;&nbsp;&nbsp;**b.** Take three screenshots of your chess window.
 
@@ -113,7 +113,7 @@ Additionally, the chessboard location for playing vs a human and playing vs a co
 
 &nbsp;&nbsp;&nbsp;&nbsp;**d.** Open `screenshot.py` from the extracted folder `chess-bot-v3-master`.
 
-**NOTE:** The file `screenshot.py` is simply for _testing_ if your dimensions of the chessboard are correct before running it on `chessbot.py`! It is _not_ the chessbot.
+> The file `screenshot.py` is simply for _testing_ if your dimensions of the chessboard are correct before running it on `chessbot.py`! It is _not_ the chessbot.
 
 Change the variables `square_side`, `left_offset`, and `top_offset` (lines 7, 8, and 9).
 
@@ -124,7 +124,7 @@ top_offset = 255
 square_side = 215
 ```
 
-Make sure to save changes before running.
+> Make sure to save changes before running.
 
 &nbsp;&nbsp;&nbsp;&nbsp;**e.** To run `screenshot.py`, edit the following command in your text editor:
 
@@ -156,11 +156,13 @@ After all that, the project should be ready to run.
 
 Obviously, change the `user` field of the first line to your computer's username.
 
+> Once edited, save the code into your text editor so you can copy and paste it into the command prompt whenever you need.
+
 If already in the folder's directory, only `python chessbot.py` has to be executed.
 
 If you want the chessbot to stop (as long as it is already moving the mouse for you), press the `p` key on your computer and hold it down until the process is aborted.
 
-**IMPORTANT:** Be sure to reference 'Additional Info' and 'Troubleshooting/FAQ' for further customization/inquiries. If you cannot find a solution to a problem in 'Troubleshooting/FAQ`, create an issue description in the main page.
+> Be sure to reference 'Additional Info' and 'Troubleshooting/FAQ' for further customization/inquiries. If you cannot find a solution to a problem in 'Troubleshooting/FAQ`, create an issue description in the main page.
 
 </details>
 <details>
