@@ -49,7 +49,7 @@ Simply copy this text into the text editor you downloaded in the previous step, 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**b.** Open the file `chessbot.py` in your text editor.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**c.** If your Stockfish folder is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 24), replace the `user` area with the username of the computer.
+&nbsp;&nbsp;&nbsp;&nbsp;**c.** If your Stockfish folder is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 25), replace the `user` area with the username of the computer.
 
 ```python
 stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
@@ -65,7 +65,7 @@ stockfish = Stockfish("path/to/stockfish-windows-x86-64-avx2.exe")
 
 &nbsp;&nbsp;&nbsp;&nbsp;**d.** Download file [**best.pt**](https://drive.google.com/file/d/1qWDevhJstvmbeFPu9nRYgxwbgm6eo1My/view?usp=sharing) from Google Drive (filesize is too large for GitHub.)
 
-If your `best.pt` file is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 38), replace the `user` area with the username of the computer.
+If your `best.pt` file is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 39), replace the `user` area with the username of the computer.
 
 ```python
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
@@ -190,7 +190,7 @@ Using just the line `python chessbot.py` will not work unless you are **already*
 
 <h4>2.</h4> 
 
-To raise or lower the engine's ELO (skill level), adjust variable `a` (line 33).
+To raise or lower the engine's ELO (skill level), adjust variable `a` (line 34).
 
 ```python
 a = 2500
