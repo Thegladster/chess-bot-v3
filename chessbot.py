@@ -9,6 +9,7 @@ import sys
 import random
 import time
 
+# Finds monitor dimensions for offset
 monwidth = pyautogui.size()[0]
 monheight = pyautogui.size()[1]
 
