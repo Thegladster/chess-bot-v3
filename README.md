@@ -213,6 +213,14 @@ Example: if the white king moves up, then castling can only occur for the black 
 
 **IMPORTANT:** Make sure the input is always in the order `KQkq`! An input such as `kQKq` will be invalid.
 
+<h4>4.</h4>
+
+Want Stockfish to run faster (in exchange for your computer's resources?)
+
+Uncomment line 43 to change Stockfish `Hash` and `Thread` values. By default, `Hash` = 16 and `Threads` = 1, but the higher the thread count, the stronger Stockfish will be.
+
+**IMPORTANT:** `Threads` value should _never_ exceed the number of [**logical processors (cores)**](https://support.microsoft.com/en-us/windows/find-out-how-many-cores-your-processor-has-3126ef99-0247-33b3-81fc-065e9fb0c35b) on your computer. `Hash` value should stay about the same (it _has_ to be a multiple of 2<sup>x</sup>, e.g. 2, 4, 8, 16, 32, 64, etc.)
+
 </details>
 <details>
 
