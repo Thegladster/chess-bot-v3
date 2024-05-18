@@ -39,7 +39,10 @@ print("Loading model...")
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
 model.conf = 0.9
 
+# Stockfish runs faster, but uses more resources (uncomment following line and change values)
+# stockfish.update_engine_parameters({"Hash": 1024, "Threads": 10})
 
+print(stockfish.get_parameters())
 def screenshot():
     global df
 
@@ -236,7 +239,8 @@ def write_digital_FEN():
     stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
     print(stockfish_digital_fen)
     print(written_digital_fen)
-    
+
+
 # Running commands
 time_constraint = 0
 screenshot()
@@ -309,7 +313,7 @@ while not keyboard.is_pressed('p'):
     write_FEN()
     write_digital_FEN()
     n = 0
-    
+
     # To retry when there are weird exception FEN errors
     if len(written_digital_fen) == len(stockfish_digital_fen):
         for i in range(len(written_digital_fen)):
@@ -381,7 +385,7 @@ while not keyboard.is_pressed('p'):
             time_constraint += 1
         except:
             print('Your opponent seems to have made an illegal move,',
-                oppmove + '. Make sure move speed is set to "fast" and restart the bot.')
+                  oppmove + '. Make sure move speed is set to "fast" and restart the bot.')
             sys.exit()
 
     # PLAYER'S TURN
