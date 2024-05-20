@@ -9,7 +9,7 @@
 
 <h4>1. Check Python version and install text editor</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**a.** [Download ZIP folder of the repository](https://github.com/Thegladster/chess-bot-v3/zipball/master/), and rename the ZIP folder to `chessbot`. 
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** [**Download ZIP folder of the repository**](https://github.com/Thegladster/chess-bot-v3/zipball/master/), and rename the ZIP folder to `chessbot`. 
 
 Extract the files once renamed. Then open Command Prompt (Windows + R and type cmd). 
 
