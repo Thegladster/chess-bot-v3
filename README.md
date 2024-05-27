@@ -147,7 +147,13 @@ After all that, the project should be ready to run.
 
 <h4>5. Running the project</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Run the project whenever after inputting command,
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Change chess piece style to **Neo**. Follow [**these instructions**](https://support.chess.com/en/articles/8594320-how-do-i-change-my-background-board-and-pieces) in order to change the chess pieces. 
+
+If the pieces are not Neo, the bot will be **unreliable** in its detection.
+
+> Chess board style does not matter.
+
+&nbsp;&nbsp;&nbsp;&nbsp;**b.** Run the project whenever after inputting command,
 
   ```bash
   cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
