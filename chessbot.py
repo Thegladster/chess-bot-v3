@@ -14,14 +14,14 @@ monwidth = pyautogui.size()[0]
 monheight = pyautogui.size()[1]
 
 # CHESSBOARD OFFSET (EDIT THESE, CHECK README.md)
-left_offset = 564
-top_offset = 255
-square_side = 215
+left_offset = 458
+top_offset = 180
+square_side = 235
 right_offset = monwidth - (left_offset + square_side * 8)
 bottom_offset = (monheight - top_offset - square_side * 8)
 
 # Initialization (EDIT THE FOLLOWING LINE)
-stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
+stockfish = Stockfish("C:/Users/LY GAMING PC/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 player = "unknown"
@@ -30,13 +30,13 @@ timevar = input("Time control? (min.) ")
 timevar = float(timevar)
 
 # STOCKFISH ELO (a = minimum, b = maximum, max possible is ~3500)
-a = 2500
+a = 2000
 stockfish.set_elo_rating(a)
 
 print("Loading model...")
 
 # Model (EDIT THE FOLLOWING LINE)
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/LY GAMING PC/Downloads/best.pt')
 model.conf = 0.9
 
 # Stockfish runs faster, but uses more resources (uncomment following line and change values)
@@ -160,24 +160,20 @@ def FEN_addition():
 
     if written_real_fen == "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR":
         move = "w"
-        movenum = str(1)
         castling = "KQkq"
         player = "w"
     else:
         if written_real_fen == "RNBKQBNR/PPPPPPPP/8/8/8/8/pppppppp/rnbkqbnr":
             move = "w"
-            movenum = str(1)
             castling = "KQkq"
             player = "b"
         else:
             if 'pppppppp/rnbkqbnr' in written_real_fen:
                 move = "b"
-                movenum = str(1)
                 castling = "KQkq"
                 player = "b"
             else:
                 move = input("Whose turn is it to move? [w/b]: ")
-                movenum = input("What is the current move number? ")
                 castling = input("Specify castling: [K/Q/k/q]: ")
                 player = input("What color player are you? [w/b]: ")
 
@@ -187,7 +183,7 @@ def FEN_addition():
     if player == "b":
         written_real_fen = written_real_fen[::-1]
 
-    additional = " " + move + " " + castling + " - 0 " + movenum
+    additional = " " + move + " " + castling + " - 0 " + 1
     written_fen = written_real_fen + additional
     print(written_fen)
 
