@@ -5,7 +5,7 @@
 
 <div align="left">
 <details open>
-<summary><b>Get Started</b></summary>
+<summary><b>Installation</b></summary>
 
 <h4>1. Check Python version and install text editor</h4>
 
