@@ -160,20 +160,24 @@ def FEN_addition():
 
     if written_real_fen == "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR":
         move = "w"
+        movenum = str(1)
         castling = "KQkq"
         player = "w"
     else:
         if written_real_fen == "RNBKQBNR/PPPPPPPP/8/8/8/8/pppppppp/rnbkqbnr":
             move = "w"
+            movenum = str(1)
             castling = "KQkq"
             player = "b"
         else:
             if 'pppppppp/rnbkqbnr' in written_real_fen:
                 move = "b"
+                movenum = str(1)
                 castling = "KQkq"
                 player = "b"
             else:
                 move = input("Whose turn is it to move? [w/b]: ")
+                movenum = str(1)
                 castling = input("Specify castling: [K/Q/k/q]: ")
                 player = input("What color player are you? [w/b]: ")
 
@@ -183,7 +187,7 @@ def FEN_addition():
     if player == "b":
         written_real_fen = written_real_fen[::-1]
 
-    additional = " " + move + " " + castling + " - 0 " + 1
+    additional = " " + move + " " + castling + " - 0 " + movenum
     written_fen = written_real_fen + additional
     print(written_fen)
 
