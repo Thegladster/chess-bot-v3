@@ -151,7 +151,7 @@ After all that, the project should be ready to run.
 
 If the pieces are not Neo, the bot will be **unreliable** in its detection.
 
-> Chess board style does not matter.
+> By default, chess pieces should be **Neo**. This step can be skipped if you are using the default pieces.
 
 &nbsp;&nbsp;&nbsp;&nbsp;**b.** Run the project whenever after inputting command,
 
