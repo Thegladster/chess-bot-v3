@@ -21,7 +21,7 @@ right_offset = monwidth - (left_offset + square_side * 8)
 bottom_offset = (monheight - top_offset - square_side * 8)
 
 # Initialization (EDIT THE FOLLOWING LINE)
-stockfish = Stockfish("C:/Users/LY GAMING PC/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
+stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 player = "unknown"
@@ -36,7 +36,7 @@ stockfish.set_elo_rating(a)
 print("Loading model...")
 
 # Model (EDIT THE FOLLOWING LINE)
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/LY GAMING PC/Downloads/best.pt')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
 model.conf = 0.9
 
 # Stockfish runs faster, but uses more resources (uncomment following line and change values)
