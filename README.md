@@ -6,7 +6,10 @@
 <div align="left">
 <details open>
 <summary><b>Installation</b></summary>
+<br>
 
+> Make sure to follow the instructions **very** carefully. The installation process should take ~10-15 minutes if all steps are correctly done.
+ 
 <h4>1. Check Python version and install text editor</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;**a.** [**Download ZIP folder of the repository**](https://github.com/Thegladster/chess-bot-v3/zipball/master/), and rename the ZIP folder to `chessbot`. 
