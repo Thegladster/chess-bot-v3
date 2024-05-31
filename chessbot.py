@@ -29,7 +29,7 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 timevar = input("Time control? (min.) ")
 timevar = float(timevar)
 
-# STOCKFISH ELO (a = minimum, b = maximum, max possible is ~3500)
+# STOCKFISH ELO (max possible is ~3500)
 a = 2000
 stockfish.set_elo_rating(a)
 
