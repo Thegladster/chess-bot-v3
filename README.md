@@ -1,6 +1,8 @@
 <div align="center">
   <h1>♟️ Chess Bot v3 ♟️</h1>
   
+  By [gladdyator](https://github.com/Thegladster) and [lookxing](https://github.com/vLooking).
+  
   **Note:** This project was designed for Windows OS users.
 
 <div align="left">
@@ -12,7 +14,7 @@
  
 <h4>1. Check Python version and install text editor</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**a.** [**Download ZIP folder of the repository**](https://github.com/Thegladster/chess-bot-v3/zipball/master/), and rename the ZIP folder to `chessbot`. 
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Download ZIP folder of the repository [**here**](https://github.com/Thegladster/chess-bot-v3/zipball/master/), and rename the ZIP folder to `chessbot`. 
 
 Extract the files once renamed. Then open Command Prompt (Windows + R and type cmd). 
 
@@ -44,6 +46,7 @@ Simply copy this text into the text editor you downloaded in the previous step, 
 
 > If `chess-bot-v3-master` is _not_ in the downloads folder, refer to the 2nd issue in the Troubleshooting/FAQ section of this document.
 
+> If you do not know the computer username, refer to the 4th issue in the Troubleshooting/FAQ section of this document.
 <hr>
 
 <h4>3. Install Stockfish and recognition model.</h4>
@@ -144,7 +147,7 @@ If the right side of the chessboard is cropped, change the `square_side` variabl
 
 Replace the variables on `left_offset`, `top_offset`, and `square_side` (lines 17, 18, and 19) with the numbers you used for `screenshot.py`.
 
-After all that, the project should be ready to run.
+**IMPORTANT**: Make sure to always save the python file after you make an edit! (`Ctrl+S`)
 
 <hr>
 
@@ -292,7 +295,7 @@ pip3 install torch torchvision torchaudio
 <h4>4.</h4> Don't know your computer username? Enter this line into your command prompt:
 
 ```bash
-whoami
+whoami /upn
 ```
 
 <hr>
@@ -309,5 +312,9 @@ Make sure that you are _not_ in a Python environment, by either closing out the 
 exit()
 ```
 
+<h4>5.</h4> If you make an edit to the `chessbot.py` or `screenshot.py` file, and the result has not changed, try closing out command prompt and make sure that your changes have been saved in the text editor.
+
 If you have additional issues, create an issues post and a detailed description of the issue.
 </details>
+
+<div align="center">
