@@ -312,7 +312,9 @@ Make sure that you are _not_ in a Python environment, by either closing out the 
 exit()
 ```
 
-<h4>5.</h4> If you make an edit to the `chessbot.py` or `screenshot.py` file, and the result has not changed, try closing out command prompt and make sure that your changes have been saved in the text editor.
+<h4>6.</h4> 
+
+If you make an edit to the `chessbot.py` file and the result has not changed, try closing out command prompt and make sure that your changes have been saved in the text editor.
 
 If you have additional issues, create an issues post and a detailed description of the issue.
 </details>
