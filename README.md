@@ -3,7 +3,7 @@
   
   By [gladdyator](https://github.com/Thegladster) and [lookxing](https://github.com/vLooking).
   
-  **Note:** This project was designed for Windows OS users.
+  **Note:** This project was designed for Windows OS users and operates on [**chess.com**](https://chess.com/).
 
 <div align="left">
 <details open>
