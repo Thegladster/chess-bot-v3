@@ -189,8 +189,6 @@ def FEN_addition():
 
     additional = " " + move + " " + castling + " - 0 " + movenum
     written_fen = written_real_fen + additional
-    print(written_fen)
-
 
 def conversion(coord, location):
     return (letters.index(coord[location]))
@@ -237,9 +235,6 @@ def write_digital_FEN():
     stockfish_digital_fen = stockfish_digital_fen.replace('3', 'XXX')
     stockfish_digital_fen = stockfish_digital_fen.replace('2', 'XX')
     stockfish_digital_fen = stockfish_digital_fen.replace('1', 'X')
-    print(stockfish_digital_fen)
-    print(written_digital_fen)
-
 
 # Running commands
 time_constraint = 0
@@ -261,7 +256,6 @@ while not player == move:
 # Finds best move
 stockfish.set_fen_position(written_fen)
 bestmove = stockfish.get_best_move()
-print(bestmove)
 
 # Sets x/y coordinates for mouse travel
 x1 = (conversion(bestmove, 0))
@@ -353,7 +347,6 @@ while not keyboard.is_pressed('p'):
             print('Something went wrong.')
 
     oppmove = (letter1 + num1 + letter2 + num2)
-    print(n)
 
     if n > 3:
         if player == 'w':
@@ -369,7 +362,6 @@ while not keyboard.is_pressed('p'):
 
     # Tries making move, if illegal, bot ends
     try:
-        print(oppmove)
         stockfish.make_moves_from_current_position([oppmove])
         time_constraint += 1
     except:
@@ -380,7 +372,6 @@ while not keyboard.is_pressed('p'):
             else:
                 oppmove += 'q'
 
-            print(oppmove)
             stockfish.make_moves_from_current_position([oppmove])
             time_constraint += 1
         except:
