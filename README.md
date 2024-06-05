@@ -53,39 +53,11 @@ Simply copy this text into the text editor you downloaded in the previous step, 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**a.** Download the latest version of [**Stockfish**](https://stockfishchess.org/download/) (preferably version AVX2 on Windows computers). Extract all files.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**b.** Open the file `chessbot.py` in your text editor.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Move the file to the `Downloads` area of your File Explorer (if it is not there already).
 
-&nbsp;&nbsp;&nbsp;&nbsp;**c.** If your Stockfish folder is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 24), replace the `user` area with the username of the computer.
+&nbsp;&nbsp;&nbsp;&nbsp;**b.** Download file [**best.pt**](https://drive.google.com/file/d/1qWDevhJstvmbeFPu9nRYgxwbgm6eo1My/view?usp=sharing) from Google Drive (filesize is too large for GitHub.)
 
-```python
-stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
-```
-
-If the Stockfish folder is another directory, locate the `stockfish-windows-x86-64-avx2.exe` file within the folder (via search), copy the path, and replace the path in line 24.
-
-**IMPORTANT:** Make sure that you replace all the back slashes with _forward slashes._
-
-```python
-stockfish = Stockfish("path/to/stockfish-windows-x86-64-avx2.exe")
-```
-
-&nbsp;&nbsp;&nbsp;&nbsp;**d.** Download file [**best.pt**](https://drive.google.com/file/d/1qWDevhJstvmbeFPu9nRYgxwbgm6eo1My/view?usp=sharing) from Google Drive (filesize is too large for GitHub.)
-
-If your `best.pt` file is in the 'Downloads' area of your computer, in your `chessbot.py` file (line 39), replace the `user` area with the username of the computer.
-
-```python
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
-```
-
-If the `best.pt` file is another directory, locate the file (via search), copy the path, and replace the path in line 39.
-
-**IMPORTANT:** Make sure that you replace all the back slashes with _forward slashes._
-
-```python
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='path/to/best.pt')
-```
-
-> Remember to save the file (Ctrl+S) once done.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Move the file to the `Downloads` area of your computer (if it is not there already).
 
 <hr>
 
@@ -143,7 +115,7 @@ As we did in step 1, change the `user` field of the first line to your username.
 
 If the right side of the chessboard is cropped, change the `square_side` variable in `screenshot.py` by 2 pixels. This will make the image slightly wider on the right and bottom side.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**f.** Once the output screenshot looks like how you want it to (all chess pieces on the board have a label around them, and only the chessboard is in frame, nothing else), open `chessbot.py` on your text editor.
+&nbsp;&nbsp;&nbsp;&nbsp;**f.** Once the output screenshot looks like how you want it to, (all 64 squares on the chessboard are perfectly seen and no pieces are cut off) open `chessbot.py` on your text editor.
 
 Replace the variables on `left_offset`, `top_offset`, and `square_side` (lines 17, 18, and 19) with the numbers you used for `screenshot.py`.
 
