@@ -5,13 +5,20 @@ from PIL import ImageGrab
 from stockfish import Stockfish
 import math
 import keyboard
+import os
 import sys
 import random
 import time
 
-# Finds monitor dimensions for offset
+# Finds monitor dimensions for offset + login info
 monwidth = pyautogui.size()[0]
 monheight = pyautogui.size()[1]
+username = os.getlogin()
+
+# var initialization
+bestpath = "C:\\Users\\" + username + "\\Downloads\\best.pt"
+modelpath = "C:\\Users\\" + username + "\\Downloads\\stockfish-windows-x86-64-avx2\\stockfish\\stockfish-windows-x86-64-avx2.exe"
+print(bestpath)
 
 # CHESSBOARD OFFSET (EDIT THESE, CHECK README.md)
 left_offset = 458
@@ -21,7 +28,7 @@ right_offset = monwidth - (left_offset + square_side * 8)
 bottom_offset = (monheight - top_offset - square_side * 8)
 
 # Initialization (EDIT THE FOLLOWING LINE)
-stockfish = Stockfish("C:/Users/user/Downloads/stockfish-windows-x86-64-avx2/stockfish/stockfish-windows-x86-64-avx2.exe")
+stockfish = Stockfish(modelpath)
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 player = "unknown"
@@ -36,7 +43,7 @@ stockfish.set_elo_rating(a)
 print("Loading model...")
 
 # Model (EDIT THE FOLLOWING LINE)
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='C:/Users/user/Downloads/best.pt')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path=bestpath)
 model.conf = 0.9
 
 # Stockfish runs faster, but uses more resources (uncomment following line and change values)
