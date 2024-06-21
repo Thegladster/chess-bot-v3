@@ -14,7 +14,7 @@
  
 <h4>1. Download chessbot, check Python version and install text editor</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**a.** Download ZIP folder of the repository (green code button, press `Download ZIP`), and **rename the ZIP folder to `chessbot`**. 
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Download ZIP folder of the repository (green code button, press `Download ZIP`), and **_rename the ZIP folder to `chessbot`_**. 
 
 Extract the files once renamed.
 
