@@ -33,8 +33,8 @@ temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 player = "unknown"
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-timevar = input("Time control? (min.) ")
-timevar = float(timevar)
+
+
 
 # STOCKFISH ELO (max possible is ~3500)
 a = 2000
@@ -45,6 +45,9 @@ print("Loading model...")
 # Model (EDIT THE FOLLOWING LINE)
 model = torch.hub.load('ultralytics/yolov5', 'custom', path=bestpath)
 model.conf = 0.9
+
+timevar = input("Time control? (min.) ")
+timevar = float(timevar)
 
 # Stockfish runs faster, but uses more resources (uncomment following line and change values)
 # stockfish.update_engine_parameters({"Hash": 1024, "Threads": 10})
