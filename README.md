@@ -39,7 +39,7 @@ By default, downloads are saved in the Downloads folder, so the following code w
 
   ```bash
   cd C:\Users\%username%\Downloads\chessbot\chess-bot-v3-master
-  pip install -r requirements.txt cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
+  pip install -r requirements.txt
   ```
 
 > If `chess-bot-v3-master` is _not_ in the downloads folder, refer to the 2nd issue in the Troubleshooting/FAQ section of this document.
