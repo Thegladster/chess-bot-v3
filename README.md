@@ -12,11 +12,11 @@
 
 > Make sure to follow the instructions **very** carefully. The installation process should take ~10-15 minutes if all steps are correctly done.
  
-<h4>1. Check Python version and install text editor</h4>
+<h4>1. Download chessbot, check Python version and install text editor</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;**a.** Download ZIP folder of the repository [**here**](https://github.com/Thegladster/chess-bot-v3/zipball/master/), and rename the ZIP folder to `chessbot`. 
 
-Extract the files once renamed. Then open Command Prompt (Windows + R and type cmd). 
+Extract the files once renamed. Open the `chessbot` folder and rename the lone folder inside (should be named something like `Thegladster-chess-bot-v3-300a495447ff6cf830dece058238c268d9e40d7a` to `chess-bot-v3-master`. Then open Command Prompt (Windows + R and type cmd). 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**b.** Make sure Command Prompt is in a [**Python>=3.8.0**](https://www.python.org/) environment.
 
