@@ -37,16 +37,13 @@ If python version is less than 3.8.0 or not installed at all, download Python [*
 
 By default, downloads are saved in the Downloads folder, so the following code would generally work for most computers. 
 
-Simply copy this text into the text editor you downloaded in the previous step, and replace `user` with the username of the computer.
-
   ```bash
-  cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
-  pip install -r requirements.txt
+  cd C:\Users\%username%\Downloads\chessbot\chess-bot-v3-master
+  pip install -r requirements.txt cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
   ```
 
 > If `chess-bot-v3-master` is _not_ in the downloads folder, refer to the 2nd issue in the Troubleshooting/FAQ section of this document.
-
-> If you do not know the computer username, refer to the 4th issue in the Troubleshooting/FAQ section of this document.
+> 
 <hr>
 
 <h4>3. Install Stockfish and recognition model.</h4>
@@ -107,11 +104,9 @@ square_side = 215
 &nbsp;&nbsp;&nbsp;&nbsp;**e.** To run `screenshot.py`, edit the following command in your text editor:
 
 ```bash
-cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
+cd C:\Users\%username%\Downloads\chessbot\chess-bot-v3-master
 python screenshot.py
 ```
-
-As we did in step 1, change the `user` field of the first line to your username.
 
 If the right side of the chessboard is cropped, change the `square_side` variable in `screenshot.py` by 2 pixels. This will make the image slightly wider on the right and bottom side.
 
@@ -134,11 +129,9 @@ If the pieces are not Neo, the bot will be **unreliable** in its detection.
 &nbsp;&nbsp;&nbsp;&nbsp;**b.** Run the project whenever after inputting command,
 
   ```bash
-  cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
+  cd C:\Users\%username%\Downloads\chessbot\chess-bot-v3-master
   python chessbot.py
   ```
-
-Obviously, change the `user` field of the first line to your computer's username.
 
 > Once edited, save the code into your text editor so you can copy and paste it into the command prompt whenever you need.
 
@@ -164,7 +157,7 @@ and the output will be what directory (folder) Command Prompt is currently looki
 After installing requirements, if Command Prompt is reopened, the folder has to be directed into to find the python code.
 
   ```bash
-  cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
+  cd C:\Users\%username%\Downloads\chessbot\chess-bot-v3-master
   python chessbot.py
   ```
 
@@ -232,7 +225,7 @@ with `title` being the name of the missing module.
 <h4>2.</h4> If, when inputting this command into Command Prompt,
 
  ```bash
-  cd C:\Users\user\Downloads\chessbot\chess-bot-v3-master
+  cd C:\Users\%username%\Downloads\chessbot\chess-bot-v3-master
   pip install -r requirements.txt
   ```
 
@@ -262,17 +255,7 @@ If the `torch` module is having trouble installing, install the CPU version inst
 pip3 install torch torchvision torchaudio
 ```
 
-<hr>
-
-<h4>4.</h4> Don't know your computer username? Enter this line into your command prompt:
-
-```bash
-whoami /upn
-```
-
-<hr>
-
-<h4>5.</h4> If you recieve an error that your command isn't found,
+<h4>4.</h4> If you recieve an error that your command isn't found,
 
 ```bash
 Error: command not found.
@@ -284,7 +267,7 @@ Make sure that you are _not_ in a Python environment, by either closing out the 
 exit()
 ```
 
-<h4>6.</h4> 
+<h4>5.</h4> 
 
 If you make an edit to the `chessbot.py` file and the result has not changed, try closing out command prompt and make sure that your changes have been saved in the text editor.
 
