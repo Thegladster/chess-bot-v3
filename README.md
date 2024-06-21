@@ -101,7 +101,7 @@ square_side = 215
 
 > Make sure to save changes before running.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**e.** To run `screenshot.py`, edit the following command in your text editor:
+&nbsp;&nbsp;&nbsp;&nbsp;**e.** To run `screenshot.py`, run the following command in command prompt:
 
 ```bash
 cd C:\Users\%username%\Downloads\chessbot\chess-bot-v3-master
