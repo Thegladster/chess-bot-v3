@@ -5,6 +5,8 @@
   
   **Note:** This project was designed for Windows OS users and operates on [**chess.com**](https://chess.com/).
 
+  Additionally: this project is pretty old (and also kinda slow), and I don't condone cheating in any way. Use at your own risk.
+
 <div align="left">
 <details open>
 <summary><b>Installation</b></summary>
